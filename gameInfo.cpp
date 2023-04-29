@@ -50,3 +50,20 @@ int menu() {
 	}
 	return choice;
 }
+
+void makePlayer (std::string &playerName, int &age, char &gender) {
+    std::cout << "First you need to create a player account."  << std::endl;
+    std::cout << "What is your name? " << std::endl;
+    std::cin >> playerName;
+    std::cout << "What is your age? " << std::endl;
+    std::cin >> age;
+    std::cout << "What is yout gender (write m or f)? " << std::endl;
+    std::cin >> gender;
+    
+    std::cout << "You are " << playerName << ". " << "You are " << age << " years old." << std::endl;
+    
+    if (gender == 'm') 
+        std::cout << "You are male." << std::endl;
+    else if (gender == 'f')
+        std::cout << "You are female." << std::endl;
+}
