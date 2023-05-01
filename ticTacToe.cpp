@@ -39,7 +39,7 @@ bool whoBegin()
 }
 
 bool isFieldFree(int field, char arr[]) {
-    if (arr[field] != 'X' || arr[field] != 'O') {
+    if (arr[field] != 'X' && arr[field] != 'O') {
         return true;
     }
     else {
@@ -50,11 +50,19 @@ bool isFieldFree(int field, char arr[]) {
 void playerMove(char (&arr)[]) {
     int chosenField;
     std::cout << "\n\n\n" << std::endl;
-    std::cout << "Choose number from 1 to 9" << std::endl;
-    drawBoards(arr);
-    std::cin >> chosenField;
-    std::cout << "You chose field number " << chosenField << "." << std::endl;
-    arr[chosenField-1] = 'X';
+    do {
+        std::cout << "Choose number from 1 to 9" << std::endl;
+        drawBoards(arr);
+        std::cin >> chosenField;
+        std::cout << "You chose field number " << chosenField << "." << std::endl;
+        if (isFieldFree(chosenField-1, arr) == true)
+        {
+            arr[chosenField-1] = 'X';
+            break;
+        }
+        else
+            std::cout << "You choose not free field! Try again!" << std::endl;
+    } while (isFieldFree(chosenField-1, arr) == true); 
     drawBoards(arr);
     sleep(2);
 }
@@ -62,11 +70,17 @@ void playerMove(char (&arr)[]) {
 void computerMove(char (&arr)[]) {
     int randNum;    
     do {
-    randNum = rand() % 9;
-    }
-    while (isFieldFree(randNum, arr) == false);
-    arr[randNum] = 'O';    
-    std::cout << "Computer chose number: " << randNum+1 << std::endl;
+        std::cout << "\n\nChoose number from 1 to 9" << std::endl;
+        randNum = (rand() % 9)+1;
+        std::cout << "Computer chose number: " << randNum << "." << std::endl;
+        if (isFieldFree(randNum-1, arr) == true)
+        {
+            arr[randNum-1] = 'O';
+            break;
+        }
+        else
+            std::cout << "You choose not free field! Try again!" << std::endl;
+    } while (isFieldFree(-1, arr) == true);  
     drawBoards(arr);
     sleep(2);
 }
@@ -108,21 +122,32 @@ bool isSomeoneWon(char (&arr)[]) {
 void gameTicTacToe(char (&arr)[]) { 
     std::cout << "Welcome in Tic Tac Toe game" << std::endl;
     sleep(2); 
+    int cnt = 0;
     if (whoBegin() == true) {
         std::cout << "Player begins!" << std::endl;
         while (isSomeoneWon(arr) == false) {
+            if (cnt == 9)
+                std::cout << "It is a draw" << std::endl;
             playerMove(arr);
+            cnt++;
             if (isSomeoneWon(arr) == true)
                 break;
+            if (cnt == 9)
+                std::cout << "It is a draw" << std::endl;
             computerMove(arr);
+            cnt++;
         }
     }
     else if (whoBegin() == false) {
         std::cout << "Computer begins!" << std::endl;
         while (isSomeoneWon(arr) == false) {
+            if (cnt == 9)
+                std::cout << "It is a draw" << std::endl;
             computerMove(arr);
             if (isSomeoneWon(arr) == true)
                 break;
+            if (cnt == 9)
+                std::cout << "It is a draw" << std::endl;
             playerMove(arr);
         }
     }
