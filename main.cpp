@@ -4,6 +4,7 @@
 #include "opponent.h"
 #include "gameInfo.h"
 #include "ticTacToe.h"
+#include "hangman.h"
 
 std::string playerName = "";
 int age = 0;
@@ -36,5 +37,6 @@ int main() {
 //    computerMove(arrXO);
 //    clearBoard(arrXO, 9);
     gameTicTacToe(arrXO);
+    hangman();
 	return 0;
 }

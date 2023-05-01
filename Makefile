@@ -8,6 +8,7 @@ PLAYER = player
 OPPONENT = opponent
 GAMEINFO = gameInfo
 TICTACTOE = ticTacToe
+HANGMAN = hangman
 # Po prawej stronie można użyć nazw zmiennych make’a
 AR = ar         # archiwizer
 AROP = rsv	# Opcje archiwizera
@@ -22,12 +23,14 @@ ZPLAYER = $(PLAYER).cpp
 ZOPPONENT = $(OPPONENT).cpp
 ZGAMEINFO = $(GAMEINFO).cpp
 ZTICTACTOE = $(TICTACTOE).cpp
+ZHANGMAN = $(HANGMAN).cpp
 # Pliki skompilowane
 GLOKOM = $(GLOWNY).o
 OPLAYER = $(PLAYER).o
 OOPPONENT = $(OPPONENT).o
 OGAMEINFO = $(GAMEINFO).o
 OTICTACTOE = $(TICTACTOE).o
+OHANGMAN = $(HANGMAN).o
 # Plik wykonawczy
 GLOWYK = $(GLOWNY).x
 # Kompilator
@@ -51,6 +54,8 @@ $(OGAMEINFO): $(ZGAMEINFO)
 	$(KOMP) $(KOMOP) $(ZGAMEINFO)
 $(OTICTACTOE): $(ZTICTACTOE) 
 	$(KOMP) $(KOMOP) $(ZTICTACTOE)
+$(OHANGMAN): $(ZHANGMAN) 
+	$(KOMP) $(KOMOP) $(ZHANGMAN)
 $(GLOKOM): $(GLOZRO) 
 	$(KOMP) $(KOMOP) $(GLOZRO)
 # Po prawej stronie można użyć nazw zmiennych make’a
@@ -59,7 +64,7 @@ AROP = rsv	# Opcje archiwizera
 # Tworzenie biblioteki statycznej:
 # $@ oznacza nazwę celu, $? –zmodyfikowany prerekwizyt
 # Linkowanie: $^ oznacza wszystkie prerekwizyty
-$(GLOWYK): $(GLOKOM) $(OPLAYER) $(OOPPONENT) $(OGAMEINFO) $(OTICTACTOE)
+$(GLOWYK): $(GLOKOM) $(OPLAYER) $(OOPPONENT) $(OGAMEINFO) $(OTICTACTOE) $(OHANGMAN)
 	$(LINKER) -o $@ $(LINOP) $^
 
 # Regula dla wykonania 

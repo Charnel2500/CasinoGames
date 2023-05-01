@@ -21,7 +21,6 @@ void drawBoards(char (&arr)[])
 bool whoBegin()
 {
     int randNum = rand() % 2;
-    std::cout << randNum << std::endl;
     if (randNum == 1)
     {
         std::cout << "Player begins!" << std::endl;
@@ -120,11 +119,10 @@ bool isSomeoneWon(char (&arr)[]) {
 }
 
 void gameTicTacToe(char (&arr)[]) { 
-    std::cout << "Welcome in Tic Tac Toe game" << std::endl;
+    std::cout << "Welcome in Tic Tac Toe game!" << std::endl;
     sleep(2); 
     int cnt = 0;
     if (whoBegin() == true) {
-        std::cout << "Player begins!" << std::endl;
         while (isSomeoneWon(arr) == false) {
             if (cnt == 9)
                 std::cout << "It is a draw" << std::endl;
