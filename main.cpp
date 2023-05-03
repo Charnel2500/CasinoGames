@@ -36,7 +36,15 @@ int main() {
 
 //    computerMove(arrXO);
 //    clearBoard(arrXO, 9);
-    gameTicTacToe(arrXO);
+//    gameTicTacToe(arrXO);
     hangman();
+    drawHangman(1);
+    drawHangman(2);
+    drawHangman(3);
+    drawHangman(4);
+    drawHangman(5);
+    drawHangman(6);
+    drawHangman(7);
+    std::cout << chooseCategoryDrawWord(wordBase) << std::endl;
 	return 0;
 }

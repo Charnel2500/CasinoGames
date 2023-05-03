@@ -1,6 +1,101 @@
 #include <iostream>
+#include <string>
 #include "hangman.h"
+
+std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
+                        {"lion", "tiger", "elephant", "giraffe", "zebra", 
+                        "panda", "monkey", "hippopotamus", "crocodile", "kangaroo",
+                        "koala", "rhinoceros", "bear", "wolf", "fox", "deer", 
+                        "rabbit", "snake", "shark", "whale"},
+                        {"rose", "daisy", "tulip", "sunflower", "cactus",
+                        "fern", "ivy", "oak", "willow", "bamboo", 
+                        "maple", "pine", "birch", "moss", "thistle", "lavender",
+                        "mushroom", "dandelion", "orchid", "lotus"},
+                        {"USA", "Canada", "Mexico", "Brazil", "Argentina", 
+                        "France", "Germany", "Italy", "Spain", "Russia",
+                        "China", "Japan", "South Korea", "India", "Australia",
+                        "Egypt", "Nigeria", "South Africa", "Kenya", "Morocco"}
+                        };
 
 void hangman(){
     std::cout << "Welcome in Hangman game!" << std::endl;
 }
+std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN])
+{
+    int chosenCategory;
+    int drawRandomWord = rand() % 20;
+    std::string randomWord;
+    std::cout << "Choose category: 1. animals, 2. plants, 3. countries" << std::endl;
+    std::cin >> chosenCategory;
+    if (chosenCategory == 1)
+        std::cout << "You chose animals." << std::endl;
+    if (chosenCategory == 2)
+        std::cout << "You chose plants." << std::endl;
+    if (chosenCategory == 3)
+        std::cout << "You chose countries." << std::endl;
+    randomWord = wordBase[chosenCategory-1][drawRandomWord];
+    return randomWord;
+    
+}
+                        
+void drawHangman(int numWrongAnswers) {
+    switch(numWrongAnswers) {
+    case 1:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    case 2:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << "  |   |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    case 3:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << " /|   |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    case 4:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << " /|\\  |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    case 5:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << " /|\\  |\n";
+        std::cout << " /    |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    case 6:
+        std::cout << "  +---+\n";
+        std::cout << "  |   |\n";
+        std::cout << "  O   |\n";
+        std::cout << " /|\\  |\n";
+        std::cout << " / \\  |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
+    default:
+        std::cout << "End" << std::endl;
+    }
+}    
+
