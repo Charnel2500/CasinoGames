@@ -45,6 +45,6 @@ int main() {
     drawHangman(5);
     drawHangman(6);
     drawHangman(7);
-    std::cout << chooseCategoryDrawWord(wordBase) << std::endl;
-	return 0;
+    gameHangman(wordBase);
+    return 0;
 }

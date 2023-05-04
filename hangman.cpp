@@ -11,10 +11,10 @@ std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
                         "fern", "ivy", "oak", "willow", "bamboo", 
                         "maple", "pine", "birch", "moss", "thistle", "lavender",
                         "mushroom", "dandelion", "orchid", "lotus"},
-                        {"USA", "Canada", "Mexico", "Brazil", "Argentina", 
-                        "France", "Germany", "Italy", "Spain", "Russia",
-                        "China", "Japan", "South Korea", "India", "Australia",
-                        "Egypt", "Nigeria", "South Africa", "Kenya", "Morocco"}
+                        {"usa", "canada", "mexico", "brazil", "argentina", 
+                        "france", "germany", "italy", "spain", "russia",
+                        "china", "japan", "korea", "india", "australia",
+                        "egypt", "nigeria", "sudan", "kenya", "morocco"}
                         };
 
 void hangman(){
@@ -36,6 +36,12 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
     randomWord = wordBase[chosenCategory-1][drawRandomWord];
     return randomWord;
     
+}
+
+void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
+    std::string drawnWord = chooseCategoryDrawWord(wordBase);
+    std::cout << drawnWord << std::endl;
+    std::cout << drawnWord[2] << std::endl;
 }
                         
 void drawHangman(int numWrongAnswers) {
