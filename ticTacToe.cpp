@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <unistd.h>
+#include <time.h>
 #include "ticTacToe.h"
 
 
@@ -20,6 +21,7 @@ void drawBoards(char (&arr)[])
 
 bool whoBegin()
 {
+    srand(time(NULL));
     int randNum = rand() % 2;
     if (randNum == 1)
     {
@@ -70,6 +72,7 @@ void computerMove(char (&arr)[]) {
     int randNum;    
     do {
         std::cout << "\n\nChoose number from 1 to 9" << std::endl;
+        srand(time(NULL));
         randNum = (rand() % 9)+1;
         std::cout << "Computer chose number: " << randNum << "." << std::endl;
         if (isFieldFree(randNum-1, arr) == true)

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <time.h>
 #include "hangman.h"
 
 std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
@@ -23,6 +24,7 @@ void hangman(){
 std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN])
 {
     int chosenCategory;
+    srand(time(NULL));
     int drawRandomWord = rand() % 20;
     std::string randomWord;
     std::cout << "Choose category: 1. animals, 2. plants, 3. countries" << std::endl;
@@ -40,12 +42,60 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
 
 void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
     std::string drawnWord = chooseCategoryDrawWord(wordBase);
+    std::string guessWord = drawnWord;
+    char chosenLetter;
+    int deathCount = 0;
+    for (int i = 0; i < int(drawnWord.length()); ++i)
+    {
+        guessWord[i] = '_';
+    }
     std::cout << drawnWord << std::endl;
     std::cout << drawnWord[2] << std::endl;
+    std::cout << guessWord << std::endl;
+    while (true)
+    {
+        bool charPresent = false;
+        std::cout << "Choose your letter (only small letters): " << std::endl;
+        std::cin >> chosenLetter;
+        std::cout << "You chose letter " << chosenLetter << std::endl;
+        for (int i = 0; i < int(drawnWord.length()); ++i)
+        {
+            if (chosenLetter == drawnWord[i])
+            {
+                guessWord[i] = chosenLetter;
+                charPresent = true;
+            }
+        }
+        if (charPresent == false)
+            deathCount++;
+        
+        drawHangman(deathCount);
+        std::cout << guessWord << std::endl;
+        if (deathCount == 6)
+        {
+            std::cout << "You lost! You are dead man!" << std::endl;
+            break;
+        }
+        else if (guessWord == drawnWord)
+        {
+            std::cout << "You won! Congratulations!" << std::endl;
+            break;            
+        }
+            
+    }
 }
                         
 void drawHangman(int numWrongAnswers) {
     switch(numWrongAnswers) {
+    case 0:
+        std::cout << "  +---+\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "      |\n";
+        std::cout << "========="  << std::endl;
+        break;
     case 1:
         std::cout << "  +---+\n";
         std::cout << "  |   |\n";
