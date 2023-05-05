@@ -9,6 +9,8 @@ OPPONENT = opponent
 GAMEINFO = gameInfo
 TICTACTOE = ticTacToe
 HANGMAN = hangman
+TAROT = tarot
+DICEPOKER = dicePoker
 # Po prawej stronie można użyć nazw zmiennych make’a
 AR = ar         # archiwizer
 AROP = rsv	# Opcje archiwizera
@@ -24,6 +26,8 @@ ZOPPONENT = $(OPPONENT).cpp
 ZGAMEINFO = $(GAMEINFO).cpp
 ZTICTACTOE = $(TICTACTOE).cpp
 ZHANGMAN = $(HANGMAN).cpp
+ZTAROT = $(TAROT).cpp
+ZDICEPOKER = $(DICEPOKER).cpp
 # Pliki skompilowane
 GLOKOM = $(GLOWNY).o
 OPLAYER = $(PLAYER).o
@@ -31,6 +35,8 @@ OOPPONENT = $(OPPONENT).o
 OGAMEINFO = $(GAMEINFO).o
 OTICTACTOE = $(TICTACTOE).o
 OHANGMAN = $(HANGMAN).o
+OTAROT = $(TAROT).o
+ODICEPOKER = $(DICEPOKER).o
 # Plik wykonawczy
 GLOWYK = $(GLOWNY).x
 # Kompilator
@@ -56,6 +62,10 @@ $(OTICTACTOE): $(ZTICTACTOE)
 	$(KOMP) $(KOMOP) $(ZTICTACTOE)
 $(OHANGMAN): $(ZHANGMAN) 
 	$(KOMP) $(KOMOP) $(ZHANGMAN)
+$(OTAROT): $(ZTAROT) 
+	$(KOMP) $(KOMOP) $(ZTAROT)
+$(ODICEPOKER): $(ZDICEPOKER) 
+	$(KOMP) $(KOMOP) $(ZDICEPOKER)
 $(GLOKOM): $(GLOZRO) 
 	$(KOMP) $(KOMOP) $(GLOZRO)
 # Po prawej stronie można użyć nazw zmiennych make’a
@@ -64,7 +74,7 @@ AROP = rsv	# Opcje archiwizera
 # Tworzenie biblioteki statycznej:
 # $@ oznacza nazwę celu, $? –zmodyfikowany prerekwizyt
 # Linkowanie: $^ oznacza wszystkie prerekwizyty
-$(GLOWYK): $(GLOKOM) $(OPLAYER) $(OOPPONENT) $(OGAMEINFO) $(OTICTACTOE) $(OHANGMAN)
+$(GLOWYK): $(GLOKOM) $(OPLAYER) $(OOPPONENT) $(OGAMEINFO) $(OTICTACTOE) $(OHANGMAN) $(OTAROT) $(ODICEPOKER)
 	$(LINKER) -o $@ $(LINOP) $^
 
 # Regula dla wykonania 

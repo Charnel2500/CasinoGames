@@ -18,7 +18,7 @@ std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
                         "egypt", "nigeria", "sudan", "kenya", "morocco"}
                         };
 
-void hangman(){
+void welcomeHangman(){
     std::cout << "Welcome in Hangman game!" << std::endl;
 }
 std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN])
@@ -41,6 +41,7 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
 }
 
 void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
+    welcomeHangman();
     std::string drawnWord = chooseCategoryDrawWord(wordBase);
     std::string guessWord = drawnWord;
     char chosenLetter;

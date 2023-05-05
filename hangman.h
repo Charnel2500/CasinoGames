@@ -8,6 +8,6 @@ extern std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN];
 std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]);
 void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]);
 void drawHangman(int numWrongAnswers);
-void hangman();
+void welcomeHangman();
 
 #endif // HANGMAN_H_INCLUDED

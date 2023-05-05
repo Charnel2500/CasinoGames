@@ -5,6 +5,9 @@
 #include "gameInfo.h"
 #include "ticTacToe.h"
 #include "hangman.h"
+#include "tarot.h"
+#include "dicePoker.h"
+
 
 std::string playerName = "";
 int age = 0;
@@ -37,7 +40,6 @@ int main() {
 //    computerMove(arrXO);
 //    clearBoard(arrXO, 9);
 //    gameTicTacToe(arrXO);
-    hangman();
     drawHangman(1);
     drawHangman(2);
     drawHangman(3);
@@ -45,6 +47,9 @@ int main() {
     drawHangman(5);
     drawHangman(6);
     drawHangman(7);
-    gameHangman(wordBase);
+//    gameHangman(wordBase);
+    welcomeTarot();
+    welcomeDicePoker();
+    readTarotCard();
     return 0;
 }
