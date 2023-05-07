@@ -1,7 +1,7 @@
 #ifndef TICTACTOE_H_INCLUDED
 #define TICTACTOE_H_INCLUDED
 const int MAX_N = 9;
-extern char arrXO[];
+extern char arrXO[MAX_N];
 extern int chosenField;
 
 
