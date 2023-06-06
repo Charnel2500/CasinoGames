@@ -1,5 +1,10 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+#include <unistd.h> // Dołącz bibliotekę odpowiedzialną za funkcję sleep
+#include <chrono>
+#include <thread>
 #include "player.h"
 #include "opponent.h"
 #include "gameInfo.h"
@@ -51,9 +56,31 @@ int main() {
  //   welcomeTarot();
 //    welcomeDicePoker();
  //   readTarotCard();
-    firstRollDice(playerDices);
-    firstRollDice(opponentDices);
-    showRollResult(playerDices);
-    showRollResult(opponentDices);
+//    firstRollDice(playerDices);
+  //  firstRollDice(opponentDices);
+  //  showRollResult(playerDices);
+ //   showRollResult(opponentDices);
+    playerResult player1;
+    playerResult opponent1;
+    opponent1.playerName = "Daniel Negreanu";
+    player1.playerName = "";
+    cin >> player1.playerName;
+    std::cout << "First roll the dice" << endl;
+    srand(time(NULL));
+    sleep(3);
+    firstRollDice(player1.diceResult);
+    showRollResult(player1.diceResult);
+    std::cout << "Second roll the dice" << endl;
+    firstRollDice(opponent1.diceResult);
+    sleep(3);
+    showRollResult(opponent1.diceResult);
+    std::cout << "Whose won 1 - player 0 - opponent:" << winLose(player1.diceResult, opponent1.diceResult) << endl;
+
+    
+    
+    
+    
+    
+
     return 0;
 }
