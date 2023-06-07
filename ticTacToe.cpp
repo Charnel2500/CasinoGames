@@ -10,7 +10,7 @@ char arrXO[MAX_N] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 int chosenField = 0; 
 
 
-void drawBoards(char (&arr)[]) 
+void drawBoards(char (&arr)[9]) 
 {
     std::cout << arr[0] << "|" << arr[1] << "|" << arr[2] << "|" << std::endl;
     std::cout << "-+-+-+" << std::endl;
@@ -39,7 +39,7 @@ bool whoBegin()
     }
 }
 
-bool isFieldFree(int field, char arr[]) {
+bool isFieldFree(int field, char arr[9]) {
     if (arr[field] != 'X' && arr[field] != 'O') {
         return true;
     }
@@ -48,7 +48,7 @@ bool isFieldFree(int field, char arr[]) {
     }
 }
 
-void playerMove(char (&arr)[]) {
+void playerMove(char (&arr)[9]) {
     int chosenField;
     std::cout << "\n\n\n" << std::endl;
     do {
@@ -68,7 +68,7 @@ void playerMove(char (&arr)[]) {
     sleep(2);
 }
 
-void computerMove(char (&arr)[]) {
+void computerMove(char (&arr)[9]) {
     int randNum;    
     do {
         std::cout << "\n\nChoose number from 1 to 9" << std::endl;
@@ -87,14 +87,14 @@ void computerMove(char (&arr)[]) {
     sleep(2);
 }
 
-void clearBoard(char (&arr)[], const int MAX_N) {
+void clearBoard(char (&arr)[9], const int MAX_N) {
     for (int i = 0; i < MAX_N; i++) {
         arr[i] = i + 49; // '1' to 49 w ASCII
     }
     std::cout << "Your board is clean right now."<< std::endl;    
     drawBoards(arr);
 }
-bool isSomeoneWon(char (&arr)[]) {
+bool isSomeoneWon(char (&arr)[9]) {
     if ((arr[0] == 'X' && arr[1] == 'X' && arr[2] == 'X') || 
         (arr[3] == 'X' && arr[4] == 'X' && arr[5] == 'X') ||
         (arr[6] == 'X' && arr[7] == 'X' && arr[8] == 'X') ||
@@ -121,7 +121,7 @@ bool isSomeoneWon(char (&arr)[]) {
         return false;
 }
 
-void gameTicTacToe(char (&arr)[]) { 
+void gameTicTacToe(char (&arr)[9]) { 
     std::cout << "Welcome in Tic Tac Toe game!" << std::endl;
     sleep(2); 
     int cnt = 0;

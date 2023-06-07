@@ -29,10 +29,44 @@ int main() {
 	Negreanu.getName();
 	Negreanu.getAge();
     Negreanu.setValues("Daniel Negreanu", 45);
+    playerResult player1;
+    playerResult opponent1;
+    opponent1.playerName = "Daniel Negreanu";
+    player1.playerName = "";
+    cin >> player1.playerName;
     //makePlayer(playerName, age, gender);
     //Welcome(playerName);
+    std::cout << "In which game do you want to play: 1. Tic tac toe, 2. Hangman, 3. Dice Poker, 4. Tarot. " << endl;
+    int choosingGame;
+    cin >> choosingGame;
+    switch (choosingGame) {
+        case 1:
+            std::cout << "You chose Tic tac toe.\n";
+            gameTicTacToe(arrXO);
+            break;
+            
+        case 2:
+            std::cout << "You chose Hangman\n";
+            gameHangman(wordBase);
+            break;
+            
+        case 3:
+            std::cout << "You chose Dice Poker\n";
 
-    std::cout << playerName << std::endl;
+            dicePokerGame(player1.diceResult, opponent1.diceResult);
+            break;
+            
+        case 4:
+            std::cout << "You chose Tarot\n";
+            welcomeTarot();
+            readTarotCard();
+            break;
+            
+        default:
+            std::cout << "Wrong number\n";
+            break;
+    }
+//    std::cout << playerName << std::endl;
 //    drawBoards(arrXO);
 //    menu();
 //    std::cout << whoBegin() << std::endl;
@@ -60,21 +94,8 @@ int main() {
   //  firstRollDice(opponentDices);
   //  showRollResult(playerDices);
  //   showRollResult(opponentDices);
-    playerResult player1;
-    playerResult opponent1;
-    opponent1.playerName = "Daniel Negreanu";
-    player1.playerName = "";
-    cin >> player1.playerName;
-    std::cout << "First roll the dice" << endl;
-    srand(time(NULL));
-    sleep(3);
-    firstRollDice(player1.diceResult);
-    showRollResult(player1.diceResult);
-    std::cout << "Second roll the dice" << endl;
-    firstRollDice(opponent1.diceResult);
-    sleep(3);
-    showRollResult(opponent1.diceResult);
-    std::cout << "Whose won 1 - player 0 - opponent:" << winLose(player1.diceResult, opponent1.diceResult) << endl;
+
+    
 
     
     

@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <random>
+#include <unistd.h>
 #include "dicePoker.h"
 
 
@@ -23,7 +24,7 @@ void welcomeDicePoker(){
     }
 }
 */
-void firstRollDice(int (&arr)[MAX_HAND]) {
+void firstRollDice(int* arr) {
     std::random_device rd;  // Inicjalizacja generatora losowego
     std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
 
@@ -35,7 +36,7 @@ void firstRollDice(int (&arr)[MAX_HAND]) {
 }
     
 
-void showRollResult(int (&arr)[MAX_HAND]) {
+void showRollResult(int* arr) {
     for (int i = 0; i < MAX_HAND; ++i) 
     {
         std::cout << "The value of dice number " << i << " equals " << arr[i] << "." << std::endl;
@@ -292,3 +293,36 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
     return true;
 }
 /// implementacja możliwości rzucenia wybranymi koś
+void dicePokerGame(int* arr1, int* arr2) {
+    char playAgain;
+    do {
+    std::cout << "The player rolls the dice" << std::endl;
+    sleep(1);
+    std::cout << "3.." << std::endl;
+    sleep(1);
+    std::cout << "2.." << std::endl;
+    sleep(1);
+    std::cout << "1.." << std::endl;
+    sleep(1);
+    std::cout << "Let's roll the dice" << std::endl;
+    firstRollDice(arr1);
+    showRollResult(arr1);
+    std::cout << "The opponent rolls the dice" << std::endl;
+    firstRollDice(arr2);
+    sleep(1);
+    std::cout << "3.." << std::endl;
+    sleep(1);
+    std::cout << "2.." << std::endl;
+    sleep(1);
+    std::cout << "1.." << std::endl;
+    sleep(1);
+    std::cout << "Let's roll the dice" << std::endl;
+    showRollResult(arr2);
+    if (winLose(arr1, arr2)==1)
+        std::cout << "You won. Congratulation!" << std::endl;
+    else
+        std::cout << "You lost. You suck!" << std::endl;
+    std::cout << "Do you want play again. Write y if yes." << std::endl;
+    std::cin >> playAgain;
+    } while (playAgain == 'y');
+}

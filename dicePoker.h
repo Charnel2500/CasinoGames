@@ -16,4 +16,5 @@ bool twoPairs(int a1[]);
 int valueHighestRepeats(int a1[]);
 int sumValue(int a1[]);
 bool winLose(int a1[], int b1[]);
+void dicePokerGame(int arr1[], int arr2[]);
 #endif // DICEPOKER_H_INCLUDED
