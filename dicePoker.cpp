@@ -11,19 +11,7 @@
 void welcomeDicePoker(){
     std::cout << "Welcome in Dice Poker game!" << std::endl;
 }
-/*
- * 
- * 
- * 
- * void firstRollDice(int (&arr)[MAX_HAND]) {
-    srand(time(NULL));
-    for (int i = 0; i < MAX_HAND; ++i) 
-    {
-        int singleDiceRoll = (rand() % 6) + 1;
-        arr[i] = singleDiceRoll;
-    }
-}
-*/
+
 void firstRollDice(int* arr) {
     std::random_device rd;  // Inicjalizacja generatora losowego
     std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
@@ -34,8 +22,80 @@ void firstRollDice(int* arr) {
         arr[i] = diceRoll(gen);  // Generowanie liczby losowej
     }
 }
-    
+void rollSpecificDiceAgain(int* arr) {
+    std::cout << "You may roll the selected dice again. Your dice values: " << std::endl;
+    showRollResult(arr);
+    int decision = 0;
+    std::cout << "Do you want to roll the first dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cin >> decision;
+    if (decision == 1) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[0] = diceRoll(gen);
+    }
+    std::cout << "Do you want to roll the second dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cin >> decision;
+    if (decision == 2) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[1] = diceRoll(gen);
+    }
+    std::cout << "Do you want to roll the third dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cin >> decision;
+    if (decision == 3) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[2] = diceRoll(gen);
+    }
+    std::cout << "Do you want to roll the fourth dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cin >> decision;
+    if (decision == 4) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[3] = diceRoll(gen);
+    }
+    std::cout << "Do you want to roll the fifth dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cin >> decision;
+    if (decision == 5) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[4] = diceRoll(gen);
+    }
+    std::cout << "You rolled the dice again. Here are your results: " << std::endl;
+    showRollResult(arr);
+}
 
+void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and opponent roll the dice again and they can't roll specific dice again it is just pure luck.
+{
+    std::cout << "There is a draw. You and your opponent will roll the dice again and you will not roll specific dice again it is just pure luck." << std::endl;
+    std::cout << "The player rolls the dice" << std::endl;
+    sleep(1);
+    std::cout << "3.." << std::endl;
+    sleep(1);
+    std::cout << "2.." << std::endl;
+    sleep(1);
+    std::cout << "1.." << std::endl;
+    sleep(1);
+    std::cout << "Let's roll the dice" << std::endl;
+    firstRollDice(arr1);
+    showRollResult(arr1);
+    std::cout << "The opponent rolls the dice" << std::endl;
+    firstRollDice(arr2);
+    sleep(1);
+    std::cout << "3.." << std::endl;
+    sleep(1);
+    std::cout << "2.." << std::endl;
+    sleep(1);
+    std::cout << "1.." << std::endl;
+    sleep(1);
+    std::cout << "Let's roll the dice" << std::endl;
+    showRollResult(arr2);
+}
 void showRollResult(int* arr) {
     for (int i = 0; i < MAX_HAND; ++i) 
     {
@@ -109,7 +169,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
         }
         else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
         {
-            return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+            rollDiceAgain(a1, b1); 
         }
     }
     else {
@@ -128,7 +188,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
             }
             else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
             {
-                return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                rollDiceAgain(a1, b1); 
             }
         }
         else {
@@ -154,7 +214,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                         return false;
                     }
                     else if (sumValue(a1) == sumValue(b1)) {
-                        return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                        rollDiceAgain(a1, b1); 
                     }
                 }
             }
@@ -174,7 +234,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                     }
                     else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
                     {
-                        return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                        rollDiceAgain(a1, b1); 
                     }
                 }
                 else {
@@ -200,7 +260,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                                 return false;
                             }
                             else if (sumValue(a1) == sumValue(b1)) {
-                                return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                                rollDiceAgain(a1, b1); 
                             }
                         }
                     }
@@ -226,7 +286,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                                 return false;
                             }
                             else if (sumValue(a1) == sumValue(b1)) {
-                                return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                                rollDiceAgain(a1, b1); 
                             }
                         }
                     }
@@ -253,7 +313,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                                     return false;
                                 }
                                 else if (sumValue(a1) == sumValue(b1)) {
-                                    return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                                    rollDiceAgain(a1, b1); 
                                 }
                             }
                         }
@@ -280,7 +340,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
                                         return false;
                                     }
                                     else if (sumValue(a1) == sumValue(b1)) {
-                                        return false; // jest remis ale zaimplementujesz tutaj funkcję, która ponownie rzuca kośćmi
+                                        rollDiceAgain(a1, b1); 
                                     }
                                 }
                             }
@@ -307,6 +367,7 @@ void dicePokerGame(int* arr1, int* arr2) {
     std::cout << "Let's roll the dice" << std::endl;
     firstRollDice(arr1);
     showRollResult(arr1);
+    rollSpecificDiceAgain(arr1);
     std::cout << "The opponent rolls the dice" << std::endl;
     firstRollDice(arr2);
     sleep(1);
