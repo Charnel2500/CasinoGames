@@ -10,6 +10,8 @@ struct playerResult {
 void welcomeDicePoker();
 void firstRollDice(int* arr);
 void rollSpecificDiceAgain(int* arr);
+int findDifferentPosition(int* arr);
+void computerRollSpecificDiceAgain(int* arr);
 void rollDiceAgain (int* arr1, int* arr2);
 void showRollResult(int* arr);
 int numberRepeats(int a1[]);

@@ -70,6 +70,43 @@ void rollSpecificDiceAgain(int* arr) {
     showRollResult(arr);
 }
 
+int findDifferentPosition(int* arr)
+{
+    int pos = -1;
+    for (int i = 0; i < MAX_HAND; ++i)
+    {
+        int num = arr[i];
+        bool isUnique = true;
+        for (int j = 0; j < MAX_HAND; ++j)
+        {
+            if (i != j && arr[j] == num)
+            {
+                isUnique = false;
+                break;
+            }
+        }
+        if (isUnique)
+        {
+            pos = i;
+            break;
+        }
+    }
+    return pos;
+}
+void computerRollSpecificDiceAgain(int* arr) 
+{
+    if (numberRepeats(arr)==5)
+        std::cout << "Computer will not roll the dice again." << std::endl;
+    if (numberRepeats(arr)==4) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[findDifferentPosition(arr)] =  diceRoll(gen);
+    }
+}
+
+
+
 void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and opponent roll the dice again and they can't roll specific dice again it is just pure luck.
 {
     std::cout << "There is a draw. You and your opponent will roll the dice again and you will not roll specific dice again it is just pure luck." << std::endl;
@@ -96,6 +133,7 @@ void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and oppo
     std::cout << "Let's roll the dice" << std::endl;
     showRollResult(arr2);
 }
+
 void showRollResult(int* arr) {
     for (int i = 0; i < MAX_HAND; ++i) 
     {
@@ -387,3 +425,6 @@ void dicePokerGame(int* arr1, int* arr2) {
     std::cin >> playAgain;
     } while (playAgain == 'y');
 }
+
+
+///implementacja różnych poziomow trudnosci bardzo latwy nie wymienia kart, sredni wymienia jak przyglup, wysoki wymienia najlepiej jajk tylko sie da
