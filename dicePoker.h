@@ -19,8 +19,6 @@ void rollDiceAgain (int* arr1, int* arr2);
 void showRollResult(int* arr);
 int numberRepeats(int a1[]);
 bool fullHouse(int a1[]);
-bool isBigStraight(int* arr);
-bool isSmallStraight(int* arr);
 bool twoPairs(int a1[]);
 int valueHighestRepeats(int a1[]);
 int sumValue(int a1[]);
