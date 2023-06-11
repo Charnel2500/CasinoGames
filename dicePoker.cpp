@@ -91,6 +91,37 @@ int findLeastFrequentIndex(int* arr) {
     return leastFrequentIndex;
 }
 
+int findMostFrequentValue(int* arr) {
+    std::unordered_map<int, int> frequencyMap;
+    
+    for (int i = 0; i < MAX_HAND; ++i) {
+        frequencyMap[arr[i]]++;
+    }
+    
+    int mostFrequentValue = 0;
+    int maxAppearance = 0;
+    
+    for (const auto& value: frequencyMap) {
+        if(value.second > maxAppearance) {
+            mostFrequentValue = value.first;
+            maxAppearance = value.second;
+        }
+    }
+    return mostFrequentValue;
+}
+
+void rollTheDiceAgainPairOrThreeOfKind(int* arr) {
+    for (int i = 0; i < MAX_HAND; ++i) {
+        if (arr[i] != findMostFrequentValue(arr)) {
+            std::random_device rd;  // Inicjalizacja generatora losowego
+            std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+            std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+            arr[findDifferentPosition(arr)] =  diceRoll(gen);
+        }
+    }
+}
+    
+
 int findDifferentPosition(int* arr)
 {
     int pos = -1;
@@ -131,12 +162,22 @@ int computerRollSpecificDiceAgain(int* arr)
         std::cout << "Computer will not roll the dice again." << std::endl;
         return 0;
     }
+    if (numberRepeats(arr) == 1) {
+        std::cout << "Computer will not roll the dice again." << std::endl;
+        return 0;
+    }
     if (twoPairs(arr) == true) {
         std::random_device rd;  // Inicjalizacja generatora losowego
         std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
         std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
         arr[findLeastFrequentIndex(arr)] =  diceRoll(gen);
         return 0;
+    }
+    if (numberRepeats(arr) == 3 || numberRepeats(arr) == 2) {
+        rollTheDiceAgainPairOrThreeOfKind(arr);
+    }
+    else {
+        firstRollDice(arr);
     }
     return 0;
 }
@@ -202,6 +243,7 @@ bool fullHouse(int a1[]) {
     return false;
 }
 
+        
 
 bool twoPairs(int a1[]) {
     if (((a1[0] == a1[1] && a1[2] == a1[3]) || (a1[0] == a1[2] && a1[1] == a1[3]) || (a1[0] == a1[3] && a1[1] == a1[4])) || (a1[1] == a1[2] && a1[3] == a1[4]) || (a1[0] == a1[1] && a1[3] == a1[4]))
