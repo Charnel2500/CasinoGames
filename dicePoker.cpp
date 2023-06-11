@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <random>
 #include <unistd.h>
+#include <unordered_map>
 #include "dicePoker.h"
 
 
@@ -70,6 +71,26 @@ void rollSpecificDiceAgain(int* arr) {
     showRollResult(arr);
 }
 
+int findLeastFrequentIndex(int* arr) {
+    std::unordered_map<int, int> frequencyMap;
+    
+    for (int i = 0; i < MAX_HAND; ++i) {
+        frequencyMap[arr[i]]++;
+    }
+    
+    int leastFrequentIndex = -1;
+    int leastFrequentCount = MAX_HAND + 1;
+    
+    for (const auto& pair : frequencyMap) {
+        if (pair.second < leastFrequentCount) {
+            leastFrequentCount = pair.second;
+            leastFrequentIndex = pair.first;
+        }
+    }
+    
+    return leastFrequentIndex;
+}
+
 int findDifferentPosition(int* arr)
 {
     int pos = -1;
@@ -93,16 +114,31 @@ int findDifferentPosition(int* arr)
     }
     return pos;
 }
-void computerRollSpecificDiceAgain(int* arr) 
+int computerRollSpecificDiceAgain(int* arr) 
 {
-    if (numberRepeats(arr)==5)
+    if (numberRepeats(arr)==5) {
         std::cout << "Computer will not roll the dice again." << std::endl;
+        return 0;
+    }
     if (numberRepeats(arr)==4) {
         std::random_device rd;  // Inicjalizacja generatora losowego
         std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
         std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
         arr[findDifferentPosition(arr)] =  diceRoll(gen);
+        return 0;
     }
+    if (fullHouse(arr) == true) {
+        std::cout << "Computer will not roll the dice again." << std::endl;
+        return 0;
+    }
+    if (twoPairs(arr) == true) {
+        std::random_device rd;  // Inicjalizacja generatora losowego
+        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+        arr[findLeastFrequentIndex(arr)] =  diceRoll(gen);
+        return 0;
+    }
+    return 0;
 }
 
 
