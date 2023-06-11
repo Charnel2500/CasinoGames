@@ -7,10 +7,17 @@
 void welcomeTarot(){
     std::cout << "A tarot card will be drawn in a moment.\
     This card will determine your luck in the casino as well as in your \
-    life outside of it. Only the first drawn card counts.\n" << std::endl;
+    life outside of it. Only the first drawn card counts.\n\n" << std::endl;
+    std::cout << "████████╗░█████╗░██████╗░░█████╗░████████╗" << std::endl;
+    std::cout << "╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝" << std::endl;
+    std::cout << "░░░██║░░░███████║██████╔╝██║░░██║░░░██║░░░" << std::endl;
+    std::cout << "░░░██║░░░██╔══██║██╔══██╗██║░░██║░░░██║░░░" << std::endl;
+    std::cout << "░░░██║░░░██║░░██║██║░░██║╚█████╔╝░░░██║░░░" << std::endl;
+    std::cout << "░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░\n\n" << std::endl;
 }
 
 void readTarotCard(){
+    welcomeTarot();
     std::vector<std::string> tarotLines;
     std::string line;
     std::ifstream inputFile("tarot.txt");

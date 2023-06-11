@@ -19,7 +19,14 @@ std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
                         };
 
 void welcomeHangman(){
-    std::cout << "Welcome in Hangman game!" << std::endl;
+    std::cout << "Welcome in Hangman game!\n\n" << std::endl;
+    std::cout << "██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗" << std::endl;
+    std::cout << "██║░░██║██╔══██╗████╗░██║██╔════╝░████╗░████║██╔══██╗████╗░██║" << std::endl;
+    std::cout << "███████║███████║██╔██╗██║██║░░██╗░██╔████╔██║███████║██╔██╗██║" << std::endl;
+    std::cout << "██╔══██║██╔══██║██║╚████║██║░░╚██╗██║╚██╔╝██║██╔══██║██║╚████║" << std::endl;
+    std::cout << "██║░░██║██║░░██║██║░╚███║╚██████╔╝██║░╚═╝░██║██║░░██║██║░╚███║" << std::endl;
+    std::cout << "╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\n" << std::endl;
+    
 }
 std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN])
 {
@@ -50,8 +57,6 @@ void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN
     {
         guessWord[i] = '_';
     }
-    std::cout << drawnWord << std::endl;
-    std::cout << drawnWord[2] << std::endl;
     std::cout << guessWord << std::endl;
     while (true)
     {
@@ -75,6 +80,7 @@ void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN
         if (deathCount == 6)
         {
             std::cout << "You lost! You are dead man!" << std::endl;
+            std::cout << "It was the word " << drawnWord << "."<< std::endl;
             break;
         }
         else if (guessWord == drawnWord)

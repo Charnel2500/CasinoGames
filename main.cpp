@@ -34,12 +34,12 @@ int main() {
     opponent1.playerName = "Daniel Negreanu";
     player1.playerName = "";
     std::cout << "What is your name?" << endl;
-    cin >> player1.playerName;
+    std::cin >> player1.playerName;
     //makePlayer(playerName, age, gender);
     //Welcome(playerName);
     std::cout << "In which game do you want to play: 1. Tic tac toe, 2. Hangman, 3. Dice Poker, 4. Tarot. " << endl;
     int choosingGame, chooseAgain = 0;
-    cin >> choosingGame;
+    std::cin >> choosingGame;
     do 
     {
         switch (choosingGame) {
@@ -61,7 +61,6 @@ int main() {
                 
             case 4:
                 std::cout << "You chose Tarot\n";
-                welcomeTarot();
                 readTarotCard();
                 break;
                 
@@ -70,9 +69,11 @@ int main() {
                 break;
         }
         std::cout << "Do you wanna play again: 1 - yes; 0 - no" << std::endl;
-        cin >> chooseAgain;
+        std::cin >> chooseAgain;
+        if (chooseAgain == 0)
+            break;
         std::cout << "In which game do you want to play: 1. Tic tac toe, 2. Hangman, 3. Dice Poker, 4. Tarot. " << endl;
-        cin >> choosingGame;
+        std::cin >> choosingGame;
     } while (chooseAgain == 1);
     return 0;
 }

@@ -10,9 +10,14 @@
 
 //pomysl o stworzeniu dwóch graczy.
 void welcomeDicePoker(){
-    std::cout << "Welcome in Dice Poker game!" << std::endl;
+    std::cout << "Welcome in Dice Poker game!\n\n" << std::endl;
+    std::cout << "██████╗░██╗░█████╗░███████╗  ██████╗░░█████╗░██╗░░██╗███████╗██████╗░" << std::endl; //https://fsymbols.com/generators/carty/
+    std::cout << "██╔══██╗██║██╔══██╗██╔════╝  ██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗" << std::endl;
+    std::cout << "██║░░██║██║██║░░╚═╝█████╗░░  ██████╔╝██║░░██║█████═╝░█████╗░░██████╔╝" << std::endl;
+    std::cout << "██║░░██║██║██║░░██╗██╔══╝░░  ██╔═══╝░██║░░██║██╔═██╗░██╔══╝░░██╔══██╗" << std::endl;
+    std::cout << "██████╔╝██║╚█████╔╝███████╗  ██║░░░░░╚█████╔╝██║░╚██╗███████╗██║░░██║" << std::endl;
+    std::cout << "╚═════╝░╚═╝░╚════╝░╚══════╝  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝\n\n" << std::endl;
 }
-
 void firstRollDice(int* arr) {
     std::random_device rd;  // Inicjalizacja generatora losowego
     std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
@@ -147,6 +152,7 @@ int findDifferentPosition(int* arr)
 }
 int computerRollSpecificDiceAgain(int* arr) 
 {
+    std::cout << "The computer now decides whether to roll the dice again." << std::endl;
     if (numberRepeats(arr)==5) {
         std::cout << "Computer will not roll the dice again." << std::endl;
         return 0;
@@ -268,6 +274,7 @@ int sumValue(int a1[]){
     }
     return sum;
 }
+
 
 bool winLose(int a1[], int b1[]){ //check the result, return true if you win, return false f you lose, there is no draw you roll the dice until someone will win.
     if (numberRepeats(a1) == 5 && numberRepeats(b1) < 5) { // 5 the same
@@ -470,8 +477,20 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
 }
 /// implementacja możliwości rzucenia wybranymi koś
 void dicePokerGame(int* arr1, int* arr2) {
+    welcomeDicePoker();
     char playAgain;
+    int difficultyLevel = 0;
     do {
+    while (true) {
+        std::cout << "Choose difficulty level: 1 - easy, 2 - hard" << std::endl;
+        std::cin >> difficultyLevel;
+
+        if (difficultyLevel == 1 || difficultyLevel == 2) {
+            break; 
+        } else {
+            std::cout << "Wrong number! Try again!" << std::endl;
+        }
+    }
     std::cout << "The player rolls the dice" << std::endl;
     sleep(1);
     std::cout << "3.." << std::endl;
@@ -495,6 +514,11 @@ void dicePokerGame(int* arr1, int* arr2) {
     sleep(1);
     std::cout << "Let's roll the dice" << std::endl;
     showRollResult(arr2);
+    if (difficultyLevel == 2) 
+    {
+        computerRollSpecificDiceAgain(arr2);
+        showRollResult(arr2);
+    }
     if (winLose(arr1, arr2)==1)
         std::cout << "You won. Congratulation!" << std::endl;
     else

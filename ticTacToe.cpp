@@ -65,13 +65,14 @@ void playerMove(char (&arr)[9]) {
             std::cout << "You choose not free field! Try again!" << std::endl;
     } while (isFieldFree(chosenField-1, arr) == true); 
     drawBoards(arr);
-    sleep(2);
+    sleep(1);
 }
 
 void computerMove(char (&arr)[9]) {
     int randNum;    
     do {
-        std::cout << "\n\nChoose number from 1 to 9" << std::endl;
+        std::cout << "\n\nWait for computer move!" << std::endl;
+        sleep(1);
         srand(time(NULL));
         randNum = (rand() % 9)+1;
         std::cout << "Computer chose number: " << randNum << "." << std::endl;
@@ -84,7 +85,7 @@ void computerMove(char (&arr)[9]) {
             std::cout << "You choose not free field! Try again!" << std::endl;
     } while (isFieldFree(-1, arr) == true);  
     drawBoards(arr);
-    sleep(2);
+    sleep(1);
 }
 
 void clearBoard(char (&arr)[9], const int MAX_N) {
@@ -122,7 +123,14 @@ bool isSomeoneWon(char (&arr)[9]) {
 }
 
 void gameTicTacToe(char (&arr)[9]) { 
-    std::cout << "Welcome in Tic Tac Toe game!" << std::endl;
+    std::cout << "Welcome in Tic Tac Toe game!\n\n" << std::endl;
+    std::cout << "████████╗██╗░█████╗░░░░░░░████████╗░█████╗░░█████╗░░░░░░░████████╗░█████╗░███████╗" << std::endl;
+    std::cout << "╚══██╔══╝██║██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔════╝" << std::endl;
+    std::cout << "░░░██║░░░██║██║░░╚═╝█████╗░░░██║░░░███████║██║░░╚═╝█████╗░░░██║░░░██║░░██║█████╗░░" << std::endl;
+    std::cout << "░░░██║░░░██║██║░░██╗╚════╝░░░██║░░░██╔══██║██║░░██╗╚════╝░░░██║░░░██║░░██║██╔══╝░░" << std::endl;
+    std::cout << "░░░██║░░░██║╚█████╔╝░░░░░░░░░██║░░░██║░░██║╚█████╔╝░░░░░░░░░██║░░░╚█████╔╝███████╗" << std::endl;
+    std::cout << "░░░╚═╝░░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░░╚════╝░╚══════╝\n\n" << std::endl;
+
     sleep(2); 
     int cnt = 0;
     if (whoBegin() == true) {

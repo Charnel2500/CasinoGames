@@ -6,3 +6,8 @@ int menu();
 void makePlayer (std::string &playerName, int &age, char &gender);
 
 #endif // GAMEINFO_H_INCLUDED
+
+
+                                                                                              
+                                                                                              
+                                                                                              
