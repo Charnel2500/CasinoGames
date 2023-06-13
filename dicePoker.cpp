@@ -476,7 +476,8 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
     return true;
 }
 /// implementacja możliwości rzucenia wybranymi koś
-void dicePokerGame(int* arr1, int* arr2) {
+int dicePokerGame(int* arr1, int* arr2) {
+    int bankrollPoker = 0;
     welcomeDicePoker();
     char playAgain;
     int difficultyLevel = 0;
@@ -519,13 +520,18 @@ void dicePokerGame(int* arr1, int* arr2) {
         computerRollSpecificDiceAgain(arr2);
         showRollResult(arr2);
     }
-    if (winLose(arr1, arr2)==1)
+    if (winLose(arr1, arr2)==1) {
         std::cout << "You won. Congratulation!" << std::endl;
-    else
+        bankrollPoker += 10;
+    }
+    else {
         std::cout << "You lost. You suck!" << std::endl;
+        bankrollPoker -= 10;
+    }
     std::cout << "Do you want play again. Write y if yes." << std::endl;
     std::cin >> playAgain;
     } while (playAgain == 'y');
+    return bankrollPoker;
 }
 
 

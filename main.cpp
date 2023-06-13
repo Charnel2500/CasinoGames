@@ -25,6 +25,7 @@ char gender = 'a';
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main() {
+    int bankroll = 0;
 	Opponent Negreanu ("Daniel Negreanu", 45);
 	Negreanu.getName();
 	Negreanu.getAge();
@@ -56,7 +57,7 @@ int main() {
             case 3:
                 std::cout << "You chose Dice Poker\n";
 
-                dicePokerGame(player1.diceResult, opponent1.diceResult);
+                bankroll+=dicePokerGame(player1.diceResult, opponent1.diceResult);
                 break;
                 
             case 4:

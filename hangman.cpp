@@ -47,8 +47,9 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
     
 }
 
-void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
+int gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
     welcomeHangman();
+    int bankrollHangman = 0;
     std::string drawnWord = chooseCategoryDrawWord(wordBase);
     std::string guessWord = drawnWord;
     char chosenLetter;
@@ -81,15 +82,18 @@ void gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN
         {
             std::cout << "You lost! You are dead man!" << std::endl;
             std::cout << "It was the word " << drawnWord << "."<< std::endl;
+            bankrollHangman -= 5;
             break;
         }
         else if (guessWord == drawnWord)
         {
             std::cout << "You won! Congratulations!" << std::endl;
+            bankrollHangman += 5;
             break;            
         }
             
     }
+    return bankrollHangman;
 }
                         
 void drawHangman(int numWrongAnswers) {
