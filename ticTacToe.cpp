@@ -159,8 +159,10 @@ int gameTicTacToe(char (&arr)[9]) {
             computerMove(arr);
             if (isSomeoneWon(arr, bankrollTictactoe) == true)
                 break;
-            if (cnt == 9)
+            if (cnt == 9) {
                 std::cout << "It is a draw" << std::endl;
+                break;
+            }
             playerMove(arr);
         }
     }
