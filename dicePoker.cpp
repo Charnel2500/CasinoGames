@@ -28,6 +28,13 @@ void firstRollDice(int* arr) {
         arr[i] = diceRoll(gen);  // Generowanie liczby losowej
     }
 }
+
+int diceRollGenerator() {
+    std::random_device rd;  // Inicjalizacja generatora losowego
+    std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+    std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+    return diceRoll(gen);
+}
 void rollSpecificDiceAgain(int* arr) {
     std::cout << "You may roll the selected dice again. Your dice values: " << std::endl;
     showRollResult(arr);
@@ -35,42 +42,27 @@ void rollSpecificDiceAgain(int* arr) {
     std::cout << "Do you want to roll the first dice again (1 - yes, 0 - no)?" << std::endl;
     std::cin >> decision;
     if (decision == 1) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[0] = diceRoll(gen);
+        arr[0] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the second dice again (1 - yes, 0 - no)?" << std::endl;
     std::cin >> decision;
     if (decision == 2) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[1] = diceRoll(gen);
+        arr[1] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the third dice again (1 - yes, 0 - no)?" << std::endl;
     std::cin >> decision;
     if (decision == 3) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[2] = diceRoll(gen);
+        arr[2] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the fourth dice again (1 - yes, 0 - no)?" << std::endl;
     std::cin >> decision;
     if (decision == 4) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[3] = diceRoll(gen);
+        arr[3] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the fifth dice again (1 - yes, 0 - no)?" << std::endl;
     std::cin >> decision;
     if (decision == 5) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[4] = diceRoll(gen);
+        arr[4] = diceRollGenerator();
     }
     std::cout << "You rolled the dice again. Here are your results: " << std::endl;
     showRollResult(arr);
@@ -118,10 +110,7 @@ int findMostFrequentValue(int* arr) {
 void rollTheDiceAgainPairOrThreeOfKind(int* arr) {
     for (int i = 0; i < MAX_HAND; ++i) {
         if (arr[i] != findMostFrequentValue(arr)) {
-            std::random_device rd;  // Inicjalizacja generatora losowego
-            std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-            std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-            arr[findDifferentPosition(arr)] =  diceRoll(gen);
+            arr[findDifferentPosition(arr)] =  diceRollGenerator();
         }
     }
 }
@@ -158,10 +147,7 @@ int computerRollSpecificDiceAgain(int* arr)
         return 0;
     }
     if (numberRepeats(arr)==4) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[findDifferentPosition(arr)] =  diceRoll(gen);
+        arr[findDifferentPosition(arr)] = diceRollGenerator();
         return 0;
     }
     if (fullHouse(arr) == true) {
@@ -173,10 +159,7 @@ int computerRollSpecificDiceAgain(int* arr)
         return 0;
     }
     if (twoPairs(arr) == true) {
-        std::random_device rd;  // Inicjalizacja generatora losowego
-        std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-        std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
-        arr[findLeastFrequentIndex(arr)] =  diceRoll(gen);
+        arr[findLeastFrequentIndex(arr)] = diceRollGenerator();
         return 0;
     }
     if (numberRepeats(arr) == 3 || numberRepeats(arr) == 2) {

@@ -4,19 +4,16 @@
 using namespace std;
 class Player
 {
-    private:
-		string name;
-		int age;
-	public:
-
-		Player(string, int);
-		~Player();
-
-		void setValues(string name, int age);
-        string getName();
-        int getAge();
-        void printInfo(string name, int age);
-
+private:
+    string name;
+    int age;
+public:
+    Player(string, int);
+    ~Player();
+    void setValues(string name, int age);
+    string getName();
+    int getAge();
+    void printInfo(string name, int age);
 };
 
 

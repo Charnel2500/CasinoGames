@@ -9,6 +9,7 @@ struct playerResult {
 
 void welcomeDicePoker();
 void firstRollDice(int* arr);
+int diceRollGenerator();
 void rollSpecificDiceAgain(int* arr);
 int findLeastFrequentIndex(int* arr);
 int findMostFrequentValue(int* arr);
