@@ -125,24 +125,38 @@ CMakeFiles/CasinoGames.dir/hangman.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CasinoGames.dir/hangman.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/C++/Kasyno/Casino/hangman.cpp -o CMakeFiles/CasinoGames.dir/hangman.cpp.s
 
-CMakeFiles/CasinoGames.dir/playerType.cpp.o: CMakeFiles/CasinoGames.dir/flags.make
-CMakeFiles/CasinoGames.dir/playerType.cpp.o: playerType.cpp
-CMakeFiles/CasinoGames.dir/playerType.cpp.o: CMakeFiles/CasinoGames.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CasinoGames.dir/playerType.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CasinoGames.dir/playerType.cpp.o -MF CMakeFiles/CasinoGames.dir/playerType.cpp.o.d -o CMakeFiles/CasinoGames.dir/playerType.cpp.o -c /home/jakub/C++/Kasyno/Casino/playerType.cpp
+CMakeFiles/CasinoGames.dir/opponent.cpp.o: CMakeFiles/CasinoGames.dir/flags.make
+CMakeFiles/CasinoGames.dir/opponent.cpp.o: opponent.cpp
+CMakeFiles/CasinoGames.dir/opponent.cpp.o: CMakeFiles/CasinoGames.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CasinoGames.dir/opponent.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CasinoGames.dir/opponent.cpp.o -MF CMakeFiles/CasinoGames.dir/opponent.cpp.o.d -o CMakeFiles/CasinoGames.dir/opponent.cpp.o -c /home/jakub/C++/Kasyno/Casino/opponent.cpp
 
-CMakeFiles/CasinoGames.dir/playerType.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CasinoGames.dir/playerType.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/C++/Kasyno/Casino/playerType.cpp > CMakeFiles/CasinoGames.dir/playerType.cpp.i
+CMakeFiles/CasinoGames.dir/opponent.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CasinoGames.dir/opponent.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/C++/Kasyno/Casino/opponent.cpp > CMakeFiles/CasinoGames.dir/opponent.cpp.i
 
-CMakeFiles/CasinoGames.dir/playerType.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CasinoGames.dir/playerType.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/C++/Kasyno/Casino/playerType.cpp -o CMakeFiles/CasinoGames.dir/playerType.cpp.s
+CMakeFiles/CasinoGames.dir/opponent.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CasinoGames.dir/opponent.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/C++/Kasyno/Casino/opponent.cpp -o CMakeFiles/CasinoGames.dir/opponent.cpp.s
+
+CMakeFiles/CasinoGames.dir/player.cpp.o: CMakeFiles/CasinoGames.dir/flags.make
+CMakeFiles/CasinoGames.dir/player.cpp.o: player.cpp
+CMakeFiles/CasinoGames.dir/player.cpp.o: CMakeFiles/CasinoGames.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CasinoGames.dir/player.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CasinoGames.dir/player.cpp.o -MF CMakeFiles/CasinoGames.dir/player.cpp.o.d -o CMakeFiles/CasinoGames.dir/player.cpp.o -c /home/jakub/C++/Kasyno/Casino/player.cpp
+
+CMakeFiles/CasinoGames.dir/player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CasinoGames.dir/player.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/C++/Kasyno/Casino/player.cpp > CMakeFiles/CasinoGames.dir/player.cpp.i
+
+CMakeFiles/CasinoGames.dir/player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CasinoGames.dir/player.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/C++/Kasyno/Casino/player.cpp -o CMakeFiles/CasinoGames.dir/player.cpp.s
 
 CMakeFiles/CasinoGames.dir/tarot.cpp.o: CMakeFiles/CasinoGames.dir/flags.make
 CMakeFiles/CasinoGames.dir/tarot.cpp.o: tarot.cpp
 CMakeFiles/CasinoGames.dir/tarot.cpp.o: CMakeFiles/CasinoGames.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CasinoGames.dir/tarot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CasinoGames.dir/tarot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CasinoGames.dir/tarot.cpp.o -MF CMakeFiles/CasinoGames.dir/tarot.cpp.o.d -o CMakeFiles/CasinoGames.dir/tarot.cpp.o -c /home/jakub/C++/Kasyno/Casino/tarot.cpp
 
 CMakeFiles/CasinoGames.dir/tarot.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/CasinoGames.dir/tarot.cpp.s: cmake_force
 CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o: CMakeFiles/CasinoGames.dir/flags.make
 CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o: ticTacToe.cpp
 CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o: CMakeFiles/CasinoGames.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o -MF CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o.d -o CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o -c /home/jakub/C++/Kasyno/Casino/ticTacToe.cpp
 
 CMakeFiles/CasinoGames.dir/ticTacToe.cpp.i: cmake_force
@@ -173,7 +187,8 @@ CasinoGames_OBJECTS = \
 "CMakeFiles/CasinoGames.dir/dicePoker.cpp.o" \
 "CMakeFiles/CasinoGames.dir/gameInfo.cpp.o" \
 "CMakeFiles/CasinoGames.dir/hangman.cpp.o" \
-"CMakeFiles/CasinoGames.dir/playerType.cpp.o" \
+"CMakeFiles/CasinoGames.dir/opponent.cpp.o" \
+"CMakeFiles/CasinoGames.dir/player.cpp.o" \
 "CMakeFiles/CasinoGames.dir/tarot.cpp.o" \
 "CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o"
 
@@ -184,12 +199,13 @@ CasinoGames: CMakeFiles/CasinoGames.dir/main.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/dicePoker.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/gameInfo.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/hangman.cpp.o
-CasinoGames: CMakeFiles/CasinoGames.dir/playerType.cpp.o
+CasinoGames: CMakeFiles/CasinoGames.dir/opponent.cpp.o
+CasinoGames: CMakeFiles/CasinoGames.dir/player.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/tarot.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o
 CasinoGames: CMakeFiles/CasinoGames.dir/build.make
 CasinoGames: CMakeFiles/CasinoGames.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable CasinoGames"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable CasinoGames"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CasinoGames.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,5 +1,5 @@
-CMakeFiles/CasinoGames.dir/main.cpp.o: \
- /home/jakub/C++/Kasyno/Casino/main.cpp /usr/include/stdc-predef.h \
+CMakeFiles/CasinoGames.dir/hangman.cpp.o: \
+ /home/jakub/C++/Kasyno/Casino/hangman.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
@@ -135,30 +135,5 @@ CMakeFiles/CasinoGames.dir/main.cpp.o: \
  /usr/include/c++/9/bits/locale_facets.tcc \
  /usr/include/c++/9/bits/basic_ios.tcc \
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
- /usr/include/c++/9/bits/istream.tcc /usr/include/c++/9/fstream \
- /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/map \
- /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/ext/aligned_buffer.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/tuple \
- /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
- /usr/include/c++/9/array /usr/include/c++/9/bits/uses_allocator.h \
- /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/bits/erase_if.h /usr/include/c++/9/vector \
- /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h \
- /usr/include/c++/9/bits/stl_vector.h \
- /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /usr/include/c++/9/algorithm /usr/include/c++/9/bits/stl_algo.h \
- /usr/include/c++/9/bits/algorithmfwd.h \
- /usr/include/c++/9/bits/stl_heap.h /usr/include/c++/9/bits/stl_tempbuf.h \
- /usr/include/c++/9/bits/uniform_int_dist.h /usr/include/c++/9/limits \
- /home/jakub/C++/Kasyno/Casino/player.h \
- /home/jakub/C++/Kasyno/Casino/opponent.h \
- /home/jakub/C++/Kasyno/Casino/gameInfo.h \
- /home/jakub/C++/Kasyno/Casino/ticTacToe.h \
- /home/jakub/C++/Kasyno/Casino/hangman.h \
- /home/jakub/C++/Kasyno/Casino/tarot.h \
- /home/jakub/C++/Kasyno/Casino/dicePoker.h
+ /usr/include/c++/9/bits/istream.tcc \
+ /home/jakub/C++/Kasyno/Casino/hangman.h

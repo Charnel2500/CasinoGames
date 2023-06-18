@@ -4,13 +4,14 @@
 #include <map>
 #include <vector>
 #include <algorithm>
-#include "playerType.h"
+
+#include "player.h"
+#include "opponent.h"
 #include "gameInfo.h"
 #include "ticTacToe.h"
 #include "hangman.h"
 #include "tarot.h"
 #include "dicePoker.h"
-
 
 struct PlayerMoney {
     std::string playerName;
@@ -22,17 +23,24 @@ bool compareByBankroll(const PlayerMoney& a, const PlayerMoney& b) {
 }
 
 int main() {
-    std::string playerName;
+    std::string playerName = "";
+    int age = 0;
+    char gender = 'a';
+
+    Opponent Negreanu("Daniel Negreanu", 45);
+    Negreanu.getName();
+    Negreanu.getAge();
+    Negreanu.setValues("Daniel Negreanu", 45);
+
+    playerResult player1;
+    playerResult opponent1;
+    opponent1.playerName = "Daniel Negreanu";
+    player1.playerName = "";
+
     std::cout << "What is your name?" << std::endl;
     std::cin >> playerName;
-    
-    Player player1 = {playerName, 0, PlayerType::MainPlayer};
-    player1.printInfo();
-
-    Player opponent1 = {"Daniel Negreanu", 40, PlayerType::Opponent};
-    std::cout << "Your opponent: " << std::endl;
-    opponent1.printInfo();
-    
+    player1.playerName = playerName;
+    std::cout << "Your opponent's name is " << opponent1.playerName << std::endl;
     std::cout << "Which game do you want to play: 1. Tic Tac Toe, 2. Hangman, 3. Dice Poker, 4. Tarot?" << std::endl;
     int choosingGame, chooseAgain = 0;
     std::cin >> choosingGame;

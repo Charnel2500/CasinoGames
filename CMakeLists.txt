@@ -6,7 +6,8 @@ add_executable(CasinoGames
     dicePoker.cpp
     gameInfo.cpp
     hangman.cpp
-    playerType.cpp
+    opponent.cpp
+    player.cpp
     tarot.cpp
     ticTacToe.cpp
 )
@@ -21,7 +22,8 @@ add_custom_target(pack
             "${CMAKE_CURRENT_SOURCE_DIR}/dicePoker.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/gameInfo.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/hangman.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/playerType.cpp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/opponent.cpp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/player.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/tarot.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/ticTacToe.cpp"
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

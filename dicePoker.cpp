@@ -21,6 +21,7 @@ void welcomeDicePoker(){
 void firstRollDice(int* arr) {
     std::random_device rd;  // Inicjalizacja generatora losowego
     std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+
     std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
 
     for (int i = 0; i < MAX_HAND; ++i) {
@@ -233,7 +234,7 @@ bool fullHouse(int a1[]) {
 
         
 
-bool twoPairs(int a1[]) {
+bool twoPairs(int a1[]) { //checking if there are two pairs of dice with the same values 
     if (((a1[0] == a1[1] && a1[2] == a1[3]) || (a1[0] == a1[2] && a1[1] == a1[3]) || (a1[0] == a1[3] && a1[1] == a1[4])) || (a1[1] == a1[2] && a1[3] == a1[4]) || (a1[0] == a1[1] && a1[3] == a1[4]))
         return true;
     return false;
@@ -464,37 +465,33 @@ int dicePokerGame(int* arr1, int* arr2) {
     char playAgain;
     int difficultyLevel = 0;
     do {
-    while (true) {
-        std::cout << "Choose difficulty level: 1 - easy, 2 - hard" << std::endl;
-        std::cin >> difficultyLevel;
+        while (true) {
+            std::cout << "Choose difficulty level: 1 - easy, 2 - hard" << std::endl;
+            std::cin >> difficultyLevel;
 
-        if (difficultyLevel == 1 || difficultyLevel == 2) {
-            break; 
-        } else {
-            std::cout << "Wrong number! Try again!" << std::endl;
-        }
+            if (difficultyLevel == 1 || difficultyLevel == 2) {
+                break; 
+            } else {
+                std::cout << "Wrong number! Try again!" << std::endl;
+            }
     }
     std::cout << "The player rolls the dice" << std::endl;
     sleep(1);
-    std::cout << "3.." << std::endl;
-    sleep(1);
-    std::cout << "2.." << std::endl;
-    sleep(1);
-    std::cout << "1.." << std::endl;
-    sleep(1);
+    for (int i = 3; i > 0; --i) {
+        std::cout << i << ".." << std::endl;
+        sleep(1);
+    }
     std::cout << "Let's roll the dice" << std::endl;
     firstRollDice(arr1);
     showRollResult(arr1);
     rollSpecificDiceAgain(arr1);
     std::cout << "The opponent rolls the dice" << std::endl;
+    sleep(1);
+    for (int i = 3; i > 0; --i) {
+        std::cout << i << ".." << std::endl;
+        sleep(1);
+    }
     firstRollDice(arr2);
-    sleep(1);
-    std::cout << "3.." << std::endl;
-    sleep(1);
-    std::cout << "2.." << std::endl;
-    sleep(1);
-    std::cout << "1.." << std::endl;
-    sleep(1);
     std::cout << "Let's roll the dice" << std::endl;
     showRollResult(arr2);
     if (difficultyLevel == 2) 

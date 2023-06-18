@@ -83,12 +83,12 @@ clean: CMakeFiles/pack.dir/clean
 CMakeFiles/CasinoGames.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target CasinoGames"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target CasinoGames"
 .PHONY : CMakeFiles/CasinoGames.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CasinoGames.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jakub/C++/Kasyno/Casino/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jakub/C++/Kasyno/Casino/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CasinoGames.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jakub/C++/Kasyno/Casino/CMakeFiles 0
 .PHONY : CMakeFiles/CasinoGames.dir/rule
@@ -135,7 +135,7 @@ CMakeFiles/clean_target.dir/clean:
 CMakeFiles/pack.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pack.dir/build.make CMakeFiles/pack.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pack.dir/build.make CMakeFiles/pack.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=9 "Built target pack"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=10 "Built target pack"
 .PHONY : CMakeFiles/pack.dir/all
 
 # Build rule for subdir invocation for target.

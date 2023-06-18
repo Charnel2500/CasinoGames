@@ -95,7 +95,7 @@ void clearBoard(char (&arr)[9], const int MAX_N) {
     std::cout << "Your board is clean right now."<< std::endl;    
     drawBoards(arr);
 }
-bool isSomeoneWon(char (&arr)[9], int& bankrollTictactoe) {
+bool hasAnyoneWon(char (&arr)[9], int& bankrollTictactoe) {
     if ((arr[0] == 'X' && arr[1] == 'X' && arr[2] == 'X') || 
         (arr[3] == 'X' && arr[4] == 'X' && arr[5] == 'X') ||
         (arr[6] == 'X' && arr[7] == 'X' && arr[8] == 'X') ||
@@ -138,12 +138,12 @@ int gameTicTacToe(char (&arr)[9]) {
     sleep(2); 
     int cnt = 0;
     if (whoBegin() == true) {
-        while (isSomeoneWon(arr, bankrollTictactoe) == false) {
+        while (hasAnyoneWon(arr, bankrollTictactoe) == false) {
             if (cnt == 9)
                 std::cout << "It is a draw" << std::endl;
             playerMove(arr);
             cnt++;
-            if (isSomeoneWon(arr, bankrollTictactoe) == true)
+            if (hasAnyoneWon(arr, bankrollTictactoe) == true)
                 break;
             if (cnt == 9)
                 std::cout << "It is a draw" << std::endl;
@@ -151,13 +151,13 @@ int gameTicTacToe(char (&arr)[9]) {
             cnt++;
         }
     }
-    else if (whoBegin() == false) {
+    else {
         std::cout << "Computer begins!" << std::endl;
-        while (isSomeoneWon(arr, bankrollTictactoe) == false) {
+        while (hasAnyoneWon(arr, bankrollTictactoe) == false) {
             if (cnt == 9)
                 std::cout << "It is a draw" << std::endl;
             computerMove(arr);
-            if (isSomeoneWon(arr, bankrollTictactoe) == true)
+            if (hasAnyoneWon(arr, bankrollTictactoe) == true)
                 break;
             if (cnt == 9) {
                 std::cout << "It is a draw" << std::endl;
