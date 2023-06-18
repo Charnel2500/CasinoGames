@@ -21,7 +21,6 @@ void welcomeDicePoker(){
 void firstRollDice(int* arr) {
     std::random_device rd;  // Inicjalizacja generatora losowego
     std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-
     std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
 
     for (int i = 0; i < MAX_HAND; ++i) {

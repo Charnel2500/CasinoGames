@@ -68,7 +68,7 @@ include CMakeFiles/pack.dir/progress.make
 
 CMakeFiles/pack:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jakub/C++/Kasyno/Casino/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Creating source archive"
-	/usr/local/bin/cmake -E tar cfv /home/jakub/C++/Kasyno/Casino/CasinoGames_Source.zip /home/jakub/C++/Kasyno/Casino/main.cpp /home/jakub/C++/Kasyno/Casino/dicePoker.cpp /home/jakub/C++/Kasyno/Casino/gameInfo.cpp /home/jakub/C++/Kasyno/Casino/hangman.cpp /home/jakub/C++/Kasyno/Casino/opponent.cpp /home/jakub/C++/Kasyno/Casino/player.cpp /home/jakub/C++/Kasyno/Casino/tarot.cpp /home/jakub/C++/Kasyno/Casino/ticTacToe.cpp
+	/usr/local/bin/cmake -E tar cfv /home/jakub/C++/Kasyno/Casino/CasinoGames_Source.zip /home/jakub/C++/Kasyno/Casino/main.cpp /home/jakub/C++/Kasyno/Casino/dicePoker.cpp /home/jakub/C++/Kasyno/Casino/gameInfo.cpp /home/jakub/C++/Kasyno/Casino/hangman.cpp /home/jakub/C++/Kasyno/Casino/playerType.cpp /home/jakub/C++/Kasyno/Casino/tarot.cpp /home/jakub/C++/Kasyno/Casino/ticTacToe.cpp
 
 pack: CMakeFiles/pack
 pack: CMakeFiles/pack.dir/build.make

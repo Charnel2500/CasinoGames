@@ -251,53 +251,29 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-opponent.o: opponent.cpp.o
-.PHONY : opponent.o
+playerType.o: playerType.cpp.o
+.PHONY : playerType.o
 
 # target to build an object file
-opponent.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/opponent.cpp.o
-.PHONY : opponent.cpp.o
+playerType.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/playerType.cpp.o
+.PHONY : playerType.cpp.o
 
-opponent.i: opponent.cpp.i
-.PHONY : opponent.i
-
-# target to preprocess a source file
-opponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/opponent.cpp.i
-.PHONY : opponent.cpp.i
-
-opponent.s: opponent.cpp.s
-.PHONY : opponent.s
-
-# target to generate assembly for a file
-opponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/opponent.cpp.s
-.PHONY : opponent.cpp.s
-
-player.o: player.cpp.o
-.PHONY : player.o
-
-# target to build an object file
-player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/player.cpp.o
-.PHONY : player.cpp.o
-
-player.i: player.cpp.i
-.PHONY : player.i
+playerType.i: playerType.cpp.i
+.PHONY : playerType.i
 
 # target to preprocess a source file
-player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/player.cpp.i
-.PHONY : player.cpp.i
+playerType.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/playerType.cpp.i
+.PHONY : playerType.cpp.i
 
-player.s: player.cpp.s
-.PHONY : player.s
+playerType.s: playerType.cpp.s
+.PHONY : playerType.s
 
 # target to generate assembly for a file
-player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/player.cpp.s
-.PHONY : player.cpp.s
+playerType.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CasinoGames.dir/build.make CMakeFiles/CasinoGames.dir/playerType.cpp.s
+.PHONY : playerType.cpp.s
 
 tarot.o: tarot.cpp.o
 .PHONY : tarot.o
@@ -370,12 +346,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... opponent.o"
-	@echo "... opponent.i"
-	@echo "... opponent.s"
-	@echo "... player.o"
-	@echo "... player.i"
-	@echo "... player.s"
+	@echo "... playerType.o"
+	@echo "... playerType.i"
+	@echo "... playerType.s"
 	@echo "... tarot.o"
 	@echo "... tarot.i"
 	@echo "... tarot.s"
