@@ -1,5 +1,0 @@
-/home/jakub/C++/Kasyno/Casino/CMakeFiles/CasinoGames.dir
-/home/jakub/C++/Kasyno/Casino/CMakeFiles/clean_target.dir
-/home/jakub/C++/Kasyno/Casino/CMakeFiles/pack.dir
-/home/jakub/C++/Kasyno/Casino/CMakeFiles/edit_cache.dir
-/home/jakub/C++/Kasyno/Casino/CMakeFiles/rebuild_cache.dir

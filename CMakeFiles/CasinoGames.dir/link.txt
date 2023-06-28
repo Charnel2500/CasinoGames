@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/CasinoGames.dir/main.cpp.o CMakeFiles/CasinoGames.dir/dicePoker.cpp.o CMakeFiles/CasinoGames.dir/gameInfo.cpp.o CMakeFiles/CasinoGames.dir/hangman.cpp.o CMakeFiles/CasinoGames.dir/opponent.cpp.o CMakeFiles/CasinoGames.dir/player.cpp.o CMakeFiles/CasinoGames.dir/tarot.cpp.o CMakeFiles/CasinoGames.dir/ticTacToe.cpp.o -o CasinoGames 
