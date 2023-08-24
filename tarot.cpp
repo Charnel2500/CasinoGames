@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include <time.h>
+#include <SFML/Graphics.hpp>
+#include <sstream>
 
 void welcomeTarot(){
     std::cout << "A tarot card will be drawn in a moment.\
@@ -34,4 +36,28 @@ void readTarotCard(){
     int randomTarotCardIndex = rand() % 22;
 
     std::cout << "This is your card for today: \n" << tarotLines[randomTarotCardIndex] << std::endl;
+    
+        sf::RenderWindow window(sf::VideoMode(800, 600), "Tarot Card");
+
+    // Pętla główna
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+        }
+        std::stringstream imagePathStream;
+        imagePathStream << "tarot_images/" << randomTarotCardIndex << ".jpg";
+        std::string imagePath = imagePathStream.str();
+        sf::Texture texture;
+        if (texture.loadFromFile(imagePath)) {
+            sf::Sprite sprite(texture);
+            window.clear();
+            window.draw(sprite);
+            window.display();
+        } else {
+            std::cout << "Can't load image!" << std::endl;
+        }
+    }
 }
