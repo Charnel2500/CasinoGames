@@ -4,6 +4,8 @@
 #include <string>
 #include <time.h>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp> 
+
 #include <sstream>
 
 void welcomeTarot(){
@@ -19,6 +21,13 @@ void welcomeTarot(){
 }
 
 void readTarotCard(){
+    sf::Music startMusic;
+    if (!startMusic.openFromFile("music/tarot.wav")) {
+        std::cerr << "Failed to load start music!" << std::endl;
+    } else {
+        startMusic.play();
+        startMusic.setLoop(true);
+    }
     welcomeTarot();
     std::vector<std::string> tarotLines;
     std::string line;
@@ -60,4 +69,5 @@ void readTarotCard(){
             std::cout << "Can't load image!" << std::endl;
         }
     }
+    startMusic.stop();
 }

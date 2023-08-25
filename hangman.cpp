@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <time.h>
+#include <SFML/Audio.hpp> 
+
 #include "hangman.h"
 
 std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
@@ -48,6 +50,13 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
 }
 
 int gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]) {
+    sf::Music startMusic;
+    if (!startMusic.openFromFile("music/hangman.wav")) {
+        std::cerr << "Failed to load start music!" << std::endl;
+    } else {
+        startMusic.play();
+        startMusic.setLoop(true);
+    }
     welcomeHangman();
     int bankrollHangman = 0;
     std::string drawnWord = chooseCategoryDrawWord(wordBase);
@@ -93,6 +102,7 @@ int gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]
         }
             
     }
+    startMusic.stop();
     return bankrollHangman;
 }
                         

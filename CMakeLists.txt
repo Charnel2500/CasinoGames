@@ -11,7 +11,7 @@ add_executable(CasinoGames
     tarot.cpp
     ticTacToe.cpp
 )
-target_link_libraries(CasinoGames PRIVATE sfml-system sfml-window sfml-graphics)
+target_link_libraries(CasinoGames PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
 add_custom_target(clean_target
     COMMAND rm -rf ${CMAKE_BINARY_DIR}/*.o ${CMAKE_BINARY_DIR}/CasinoGames
 )

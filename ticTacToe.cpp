@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <time.h>
+#include <SFML/Audio.hpp> 
+
+
 #include "ticTacToe.h"
 
 
@@ -127,6 +130,13 @@ bool hasAnyoneWon(char (&arr)[9], int& bankrollTictactoe) {
 }
 
 int gameTicTacToe(char (&arr)[9]) { 
+    sf::Music startMusic;
+    if (!startMusic.openFromFile("music/ticTacToe.wav")) {
+        std::cerr << "Failed to load start music!" << std::endl;
+    } else {
+        startMusic.play();
+        startMusic.setLoop(true);
+    }
     std::cout << "Welcome in Tic Tac Toe game!\n\n" << std::endl;
     std::cout << "████████╗██╗░█████╗░░░░░░░████████╗░█████╗░░█████╗░░░░░░░████████╗░█████╗░███████╗" << std::endl;
     std::cout << "╚══██╔══╝██║██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔════╝" << std::endl;
@@ -166,6 +176,7 @@ int gameTicTacToe(char (&arr)[9]) {
             playerMove(arr);
         }
     }
+    startMusic.stop();
     return bankrollTictactoe;
 }
 

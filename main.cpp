@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <SFML/Audio.hpp> 
 
 #include "player.h"
 #include "opponent.h"
@@ -23,6 +24,14 @@ bool compareByBankroll(const PlayerMoney& a, const PlayerMoney& b) {
 }
 
 int main() {
+    sf::Music startMusic;
+    if (!startMusic.openFromFile("music/intro.wav")) {
+        std::cerr << "Failed to load start music!" << std::endl;
+    } else {
+        startMusic.play();
+        startMusic.setLoop(true);
+    }
+    
     std::string playerName = "";
     int age = 0;
     char gender = 'a';
@@ -50,21 +59,25 @@ int main() {
     do {
         switch (choosingGame) {
             case 1:
+                startMusic.stop();
                 std::cout << "You chose Tic Tac Toe." << std::endl;
                 bankroll += gameTicTacToe(arrXO);
                 break;
 
             case 2:
+                startMusic.stop();
                 std::cout << "You chose Hangman." << std::endl;
                 bankroll += gameHangman(wordBase);
                 break;
 
             case 3:
+                startMusic.stop();
                 std::cout << "You chose Dice Poker." << std::endl;
                 bankroll += dicePokerGame(player1.diceResult, opponent1.diceResult);
                 break;
 
             case 4:
+                startMusic.stop();
                 std::cout << "You chose Tarot." << std::endl;
                 readTarotCard();
                 break;
