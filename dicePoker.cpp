@@ -512,6 +512,3 @@ int dicePokerGame(int* arr1, int* arr2) {
     } while (playAgain == 'y');
     return bankrollPoker;
 }
-
-
-///implementacja różnych poziomow trudnosci bardzo latwy nie wymienia kart, sredni wymienia jak przyglup, wysoki wymienia najlepiej jajk tylko sie da
