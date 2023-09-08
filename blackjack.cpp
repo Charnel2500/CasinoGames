@@ -2,6 +2,8 @@
 #include <vector>
 #include "blackjack.h"
 
+std::vector<Card> blackjackDeck;
+
 void welcomeBlackjack(){
     std::cout << "Welcome in Blackjack game!\n\n" << std::endl;
     std::cout << "██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗░░░░░██╗░█████╗░░█████╗░██╗░░██╗" << std::endl;

@@ -24,6 +24,8 @@ bool compareByBankroll(const PlayerMoney& a, const PlayerMoney& b) {
     return a.bankroll > b.bankroll;
 }
 
+
+
 int main() {
     sf::Music startMusic;
     if (!startMusic.openFromFile("music/intro.wav")) {
@@ -51,7 +53,7 @@ int main() {
     std::cin >> playerName;
     player1.playerName = playerName;
     std::cout << "Your opponent's name is " << opponent1.playerName << std::endl;
-    std::cout << "Which game do you want to play: 1. Tic Tac Toe, 2. Hangman, 3. Dice Poker, 4. Tarot?" << std::endl;
+    std::cout << "Which game do you want to play: 1. Tic Tac Toe, 2. Hangman, 3. Dice Poker, 4. Tarot, 5. Blackjack?" << std::endl;
     int choosingGame, chooseAgain = 0;
     std::cin >> choosingGame;
 
@@ -81,6 +83,14 @@ int main() {
                 startMusic.stop();
                 std::cout << "You chose Tarot." << std::endl;
                 readTarotCard();
+                break;
+                
+            case 5:
+                startMusic.stop();
+                std::cout << "You chose Blackjack." << std::endl;
+                welcomeBlackjack();
+                blackjackDeck = initializeDeck(); 
+                showBlackjackCards(blackjackDeck);
                 break;
 
             default:
