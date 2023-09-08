@@ -13,6 +13,7 @@
 #include "hangman.h"
 #include "tarot.h"
 #include "dicePoker.h"
+#include "blackjack.h"
 
 struct PlayerMoney {
     std::string playerName;

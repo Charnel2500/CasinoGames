@@ -10,6 +10,7 @@ add_executable(CasinoGames
     player.cpp
     tarot.cpp
     ticTacToe.cpp
+    blackjack.cpp
 )
 target_link_libraries(CasinoGames PRIVATE sfml-system sfml-window sfml-graphics sfml-audio)
 add_custom_target(clean_target
@@ -29,6 +30,7 @@ add_custom_target(pack
             "${CMAKE_CURRENT_SOURCE_DIR}/player.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/tarot.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/ticTacToe.cpp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/blackjack.cpp"
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Creating source archive"
 )
