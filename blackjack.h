@@ -10,5 +10,6 @@ extern std::vector<Card> blackjackDeck;
 void welcomeBlackjack();
 std::vector<Card> initializeDeck();
 void showBlackjackCards(const std::vector<Card>& deck);
+Card drawCard(std::vector<Card>& deck);
 #endif // BLACKJACK_H_INCLUDED
 

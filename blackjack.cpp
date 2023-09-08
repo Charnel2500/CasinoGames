@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib> 
+#include <ctime> 
 #include "blackjack.h"
 
 std::vector<Card> blackjackDeck;
@@ -36,4 +38,14 @@ void showBlackjackCards(const std::vector<Card>& deck) {
     for (const Card& card : deck) {
         std::cout << card.cardColor << " " << card.cardRank << " " << card.cardValue << "." << std::endl;
     }
+}
+
+Card drawCard(std::vector<Card>& deck) {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    int randomIndex = std::rand() % deck.size();
+    Card drawnCard = deck[randomIndex];
+    std::cout << "Wylosowano kartę: " << drawnCard.cardColor << " " << drawnCard.cardRank << " " << drawnCard.cardValue << "." << std::endl;
+    deck.erase(deck.begin() + randomIndex);
+
+    return drawnCard;
 }

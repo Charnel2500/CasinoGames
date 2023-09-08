@@ -19,20 +19,20 @@ void welcomeDicePoker(){
     std::cout << "╚═════╝░╚═╝░╚════╝░╚══════╝  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝\n\n" << std::endl;
 }
 void firstRollDice(int* arr) {
-    std::random_device rd;  // Inicjalizacja generatora losowego
-    std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
+    std::random_device rd;  
+    std::mt19937 gen(rd());  
 
-    std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+    std::uniform_int_distribution<int> diceRoll(1, 6);  
 
     for (int i = 0; i < MAX_HAND; ++i) {
-        arr[i] = diceRoll(gen);  // Generowanie liczby losowej
+        arr[i] = diceRoll(gen);  
     }
 }
 
 int diceRollGenerator() {
-    std::random_device rd;  // Inicjalizacja generatora losowego
-    std::mt19937 gen(rd());  // Inicjalizacja generatora Mersenne Twister
-    std::uniform_int_distribution<int> diceRoll(1, 6);  // Zakres liczb losowych od 1 do 6
+    std::random_device rd;  
+    std::mt19937 gen(rd());  
+    std::uniform_int_distribution<int> diceRoll(1, 6); 
     return diceRoll(gen);
 }
 void rollSpecificDiceAgain(int* arr) {
@@ -458,7 +458,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
     }
     return true;
 }
-/// implementacja możliwości rzucenia wybranymi koś
+
 int dicePokerGame(int* arr1, int* arr2) {
     int bankrollPoker = 0;
     welcomeDicePoker();

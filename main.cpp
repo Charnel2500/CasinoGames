@@ -91,6 +91,7 @@ int main() {
                 welcomeBlackjack();
                 blackjackDeck = initializeDeck(); 
                 showBlackjackCards(blackjackDeck);
+                drawCard(blackjackDeck);
                 break;
 
             default:
