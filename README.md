@@ -1,5 +1,5 @@
 # CasinoGames
-
+Casino Games is a team of several popular games such as Blackjack, Dice Poker, Gallows, and Tic-Tac-Toe. You can also read your fate using tarot cards. Everything is in your hands. Come and play.
 
 #### CMake
 ```sh
