@@ -28,6 +28,7 @@ bool compareByBankroll(const PlayerMoney& a, const PlayerMoney& b) {
 
 int main() {
     sf::Music startMusic;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
     if (!startMusic.openFromFile("music/intro.wav")) {
         std::cerr << "Failed to load start music!" << std::endl;
     } else {
@@ -91,7 +92,8 @@ int main() {
                 welcomeBlackjack();
                 blackjackDeck = initializeDeck(); 
                 showBlackjackCards(blackjackDeck);
-                drawCard(blackjackDeck);
+                //drawCard(blackjackDeck);
+                blackjackGame(blackjackDeck, blackjackDeckUsedCards);
                 break;
 
             default:
