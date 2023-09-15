@@ -10,7 +10,8 @@ $ cmake CMakeLists.txt          # generates build configuration (Makefile)
 ```sh
 $ make              # builds executable based on Makefile
 $ make clean_target # delete output files
-$ ./CasinoGames     # viola!
+$ make pack         # delete output files
+$ ./CasinoGames     # run your program!
 ```
 
 ## 🙌 Contributing

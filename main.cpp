@@ -89,11 +89,11 @@ int main() {
             case 5:
                 startMusic.stop();
                 std::cout << "You chose Blackjack." << std::endl;
-                welcomeBlackjack();
+                //welcomeBlackjack();
                 blackjackDeck = initializeDeck(); 
-                showBlackjackCards(blackjackDeck);
+                //showBlackjackCards(blackjackDeck);
                 //drawCard(blackjackDeck);
-                blackjackGame(blackjackDeck, blackjackDeckUsedCards);
+                blackjackGame(blackjackDeck, blackjackDeckUsedCards, blackjackDeckComputerCards, blackjackDeckPlayerCards);
                 break;
 
             default:

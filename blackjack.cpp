@@ -9,6 +9,11 @@
 
 std::vector<Card> blackjackDeck;
 std::vector<Card> blackjackDeckUsedCards;
+std::vector<Card> blackjackDeckComputerCards;
+std::vector<Card> blackjackDeckPlayerCards;
+
+
+
 
 void welcomeBlackjack(){
     std::cout << "Welcome in Blackjack game!\n\n" << std::endl;
@@ -72,9 +77,11 @@ Card drawCard(std::vector<Card>& deck, std::vector<Card>& usedCards) {
 
 
 
-int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards) {
+int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::vector<Card>& blackjackDeckComputerCards, std::vector<Card>& blackjackDeckPlayerCards) {
     int bankrollBlackjack = 0;
     int computerHandValue = 0;
+    int playerHandValue = 0;
+    int choice;
     welcomeBlackjack();
     char playAgain;
 /*    int difficultyLevel = 0;
@@ -93,8 +100,50 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards) {
     sleep(1);
     Card startingComputerCard1 = drawCard(deck, usedCards);
     computerHandValue = startingComputerCard1.cardValue;
+    blackjackDeckComputerCards.push_back(startingComputerCard1);
+    
     Card startingComputerCard2 = drawCard(deck, usedCards);
     computerHandValue += startingComputerCard1.cardValue;
+    blackjackDeckComputerCards.push_back(startingComputerCard2);
+    std::cout << "Opponent hand value: " << computerHandValue << std::endl;
+    
+    Card startingPlayerCard1 = drawCard(deck, usedCards);
+    playerHandValue = startingPlayerCard1.cardValue;
+    blackjackDeckPlayerCards.push_back(startingPlayerCard1);
+    
+    Card startingPlayerCard2 = drawCard(deck, usedCards);
+    playerHandValue += startingPlayerCard2.cardValue;
+    blackjackDeckPlayerCards.push_back(startingPlayerCard2);
+    std::cout << "Player hand value: " << playerHandValue << std::endl;
+    do {
+        std::cout << "You must decide. 1. draw a card, 2. Check your and opponent card, 3. Finish drawing a card" << std::endl; 
+        std::cin >> choice;
+        if (choice == 1) {
+            Card startingPlayerCardMore = drawCard(deck, usedCards);
+            playerHandValue += startingPlayerCardMore.cardValue;
+            blackjackDeckPlayerCards.push_back(startingPlayerCardMore);
+            std::cout << "Player hand value: " << playerHandValue << std::endl;
+        }
+        else if (choice == 2) {
+            std::cout << "Opponent cards" << std::endl;
+            showBlackjackCards(blackjackDeckComputerCards);
+            std::cout << "Opponent points: " << computerHandValue << std::endl;
+            
+            std::cout << "Player cards" << std::endl;
+            showBlackjackCards(blackjackDeckPlayerCards);
+            std::cout << "Player points: " << playerHandValue << std::endl;
+
+        }
+        else if (choice == 3) {
+            std::cout << "You finish drawing a card. Your points: " << playerHandValue << std::endl;
+        }
+        else {
+            std::cout << "Wrong choice. You must choose. 1. draw a card, 2. Check your and opponent card, 3. Finish drawing a card" << std::endl; 
+        }
+    } while (choice !=3);
+    
+    
+    
 /*
     if (winLose(arr1, arr2)==1) {
         std::cout << "You won. Congratulation!" << std::endl;
