@@ -141,21 +141,26 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::ve
             std::cout << "Wrong choice. You must choose. 1. draw a card, 2. Check your and opponent card, 3. Finish drawing a card" << std::endl; 
         }
     } while (choice !=3);
-    
-    
-    
-/*
-    if (winLose(arr1, arr2)==1) {
-        std::cout << "You won. Congratulation!" << std::endl;
-        bankrollPoker += 10;
+    if (playerHandValue > 21) {
+        std::cout << "Computer won!" << std::endl;
+        return bankrollBlackjack-=10;
+    }
+        
+    while (computerHandValue > playerHandValue && computerHandValue <=21) {
+        Card startingComputerCardMore = drawCard(deck, usedCards);
+        computerHandValue += startingComputerCardMore.cardValue;
+        blackjackDeckComputerCards.push_back(startingComputerCardMore);
+        std::cout << "Player hand value: " << computerHandValue << std::endl;
+    }
+    if (computerHandValue <= 21 && computerHandValue > playerHandValue) {
+        std::cout << "Computer won!" << std::endl;
+        return bankrollBlackjack-=10;
+    }
+    else if (computerHandValue == playerHandValue) {
+        return bankrollBlackjack;
     }
     else {
-        std::cout << "You lost. You suck!" << std::endl;
-        bankrollPoker -= 10;
+        std::cout << "Player won!" << std::endl;
+        return bankrollBlackjack+=10;
     }
-
-    std::cout << "Do you want play again. Write y if yes." << std::endl;
-    std::cin >> playAgain;
-    } while (playAgain == 'y');    */
-    return bankrollBlackjack;
 }
