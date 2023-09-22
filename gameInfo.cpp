@@ -1,6 +1,8 @@
 #include "gameInfo.h"
 #include <iostream>
 #include <string>
+
+
 void Welcome(std::string playerName) {
     std::cout << "Dear " << playerName << "," << std::endl;
 std::cout << "On behalf of our entire team at Dice Casino, I would like to extend a warm welcome to you! We are thrilled to have you join our community of avid \

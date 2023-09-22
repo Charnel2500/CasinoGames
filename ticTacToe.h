@@ -1,16 +1,17 @@
 #ifndef TICTACTOE_H_INCLUDED
 #define TICTACTOE_H_INCLUDED
-const int MAX_N = 9;
-extern char arrXO[MAX_N];
-extern int chosenField;
+#include <vector> 
 
+extern std::vector<char> numToChoose;
 
-void drawBoards(char (&arr)[9]) ;
-bool whoBegin();
-bool isFieldFree(int chosenField, char arrXO[9]);
-void playerMove(char (&arr)[9]);
-void computerMove(char (&arr)[9]);
-void clearBoard(char (&arr)[9], const int MAX_N);
-bool hasAnyoneWon(char (&arr)[9], int& bankrollTictactoe);
-int gameTicTacToe(char (&arr)[9]);
+void drawBoards(std::vector<char>& arr);
+bool whoBegin(); 
+bool isFieldFree(int field, const std::vector<char>& arr); 
+void playerMove(std::vector<char>& arr); 
+void computerMove(std::vector<char>& arr); 
+void clearBoard(std::vector<char>& arr);
+bool hasAnyoneWon(const std::vector<char>& arr, int& bankrollTictactoe);
+int gameTicTacToe(std::vector<char>& arr);
+
 #endif // TICTACTOE_H_INCLUDED
+

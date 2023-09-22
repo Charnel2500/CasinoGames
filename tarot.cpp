@@ -39,7 +39,7 @@ void readTarotCard(){
         inputFile.close();
     }
     else {
-        std::cerr << "Nie udało się otworzyć pliku!" << std::endl;
+        std::cerr << "Failed to open the file!" << std::endl;
     }
     srand(time(NULL));
     int randomTarotCardIndex = rand() % 22;

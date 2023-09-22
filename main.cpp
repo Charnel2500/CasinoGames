@@ -65,7 +65,7 @@ int main() {
             case 1:
                 startMusic.stop();
                 std::cout << "You chose Tic Tac Toe." << std::endl;
-                bankroll += gameTicTacToe(arrXO);
+                bankroll += gameTicTacToe(numToChoose);
                 break;
 
             case 2:

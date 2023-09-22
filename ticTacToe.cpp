@@ -4,16 +4,12 @@
 #include <time.h>
 #include <SFML/Audio.hpp> 
 
-
 #include "ticTacToe.h"
 
+std::vector<char> numToChoose = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+std::vector<char> arrXO = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-//implementation of Tic Tac Toe game.
-char arrXO[MAX_N] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-int chosenField = 0; 
-
-
-void drawBoards(char (&arr)[9]) 
+void drawBoards(std::vector<char>& arr) // Zmieniamy argument na wektor
 {
     std::cout << arr[0] << "|" << arr[1] << "|" << arr[2] << "|" << std::endl;
     std::cout << "-+-+-+" << std::endl;
@@ -42,7 +38,8 @@ bool whoBegin()
     }
 }
 
-bool isFieldFree(int field, char arr[9]) {
+bool isFieldFree(int field, const std::vector<char>& arr) // Zmieniamy argument na wektor
+{
     if (arr[field] != 'X' && arr[field] != 'O') {
         return true;
     }
@@ -51,7 +48,8 @@ bool isFieldFree(int field, char arr[9]) {
     }
 }
 
-void playerMove(char (&arr)[9]) {
+void playerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
+{
     int chosenField;
     std::cout << "\n\n\n" << std::endl;
     do {
@@ -71,7 +69,8 @@ void playerMove(char (&arr)[9]) {
     sleep(1);
 }
 
-void computerMove(char (&arr)[9]) {
+void computerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
+{
     int randNum;    
     do {
         std::cout << "\n\nWait for computer move!" << std::endl;
@@ -86,19 +85,22 @@ void computerMove(char (&arr)[9]) {
         }
         else
             std::cout << "You choose not free field! Try again!" << std::endl;
-    } while (isFieldFree(-1, arr) == true);  
+    } while (isFieldFree(randNum-1, arr) == true);  
     drawBoards(arr);
     sleep(1);
 }
 
-void clearBoard(char (&arr)[9], const int MAX_N) {
-    for (int i = 0; i < MAX_N; i++) {
+void clearBoard(std::vector<char>& arr) // Zmieniamy argument na wektor
+{
+    for (int i = 0; i < arr.size(); i++) {
         arr[i] = i + 49; // '1' to 49 w ASCII
     }
     std::cout << "Your board is clean right now."<< std::endl;    
     drawBoards(arr);
 }
-bool hasAnyoneWon(char (&arr)[9], int& bankrollTictactoe) {
+
+bool hasAnyoneWon(const std::vector<char>& arr, int& bankrollTictactoe) // Zmieniamy argument na wektor
+{
     if ((arr[0] == 'X' && arr[1] == 'X' && arr[2] == 'X') || 
         (arr[3] == 'X' && arr[4] == 'X' && arr[5] == 'X') ||
         (arr[6] == 'X' && arr[7] == 'X' && arr[8] == 'X') ||
@@ -129,7 +131,7 @@ bool hasAnyoneWon(char (&arr)[9], int& bankrollTictactoe) {
     }
 }
 
-int gameTicTacToe(char (&arr)[9]) { 
+int gameTicTacToe(std::vector<char>& arr) { 
     sf::Music startMusic;
     if (!startMusic.openFromFile("music/ticTacToe.wav")) {
         std::cerr << "Failed to load start music!" << std::endl;

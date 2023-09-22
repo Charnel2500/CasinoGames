@@ -53,7 +53,7 @@ Card drawCard(std::vector<Card>& deck, std::vector<Card>& usedCards) {
     int randomIndex;
     
     if (deck.empty()) {
-        std::cout << "Brak kart do wylosowania. Tasowanie użytych kart." << std::endl;
+        std::cout << "No cards to be drawn. Shuffling the cards dealt." << std::endl;
         
         deck = usedCards;
         usedCards.clear();
@@ -69,7 +69,7 @@ Card drawCard(std::vector<Card>& deck, std::vector<Card>& usedCards) {
     
     deck.erase(deck.begin() + randomIndex);
     
-    std::cout << "Wylosowano kartę: " << drawnCard.cardColor << " " << drawnCard.cardRank << " " << drawnCard.cardValue << "." << std::endl;
+    std::cout << "A card has been drawn: " << drawnCard.cardColor << " " << drawnCard.cardRank << " " << drawnCard.cardValue << "." << std::endl;
     
     return drawnCard;
 }
