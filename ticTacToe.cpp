@@ -7,9 +7,8 @@
 #include "ticTacToe.h"
 
 std::vector<char> numToChoose = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-std::vector<char> arrXO = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-void drawBoards(std::vector<char>& arr) // Zmieniamy argument na wektor
+void drawBoards(std::vector<char>& arr)
 {
     std::cout << arr[0] << "|" << arr[1] << "|" << arr[2] << "|" << std::endl;
     std::cout << "-+-+-+" << std::endl;
@@ -38,7 +37,7 @@ bool whoBegin()
     }
 }
 
-bool isFieldFree(int field, const std::vector<char>& arr) // Zmieniamy argument na wektor
+bool isFieldFree(int field, const std::vector<char>& arr) 
 {
     if (arr[field] != 'X' && arr[field] != 'O') {
         return true;
@@ -48,7 +47,7 @@ bool isFieldFree(int field, const std::vector<char>& arr) // Zmieniamy argument 
     }
 }
 
-void playerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
+void playerMove(std::vector<char>& arr) 
 {
     int chosenField;
     std::cout << "\n\n\n" << std::endl;
@@ -69,7 +68,7 @@ void playerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
     sleep(1);
 }
 
-void computerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
+void computerMove(std::vector<char>& arr) 
 {
     int randNum;    
     do {
@@ -90,16 +89,16 @@ void computerMove(std::vector<char>& arr) // Zmieniamy argument na wektor
     sleep(1);
 }
 
-void clearBoard(std::vector<char>& arr) // Zmieniamy argument na wektor
+void clearBoard(std::vector<char>& arr) 
 {
     for (int i = 0; i < arr.size(); i++) {
-        arr[i] = i + 49; // '1' to 49 w ASCII
+        arr[i] = i + 49; // '1' is 49 in ASCII
     }
     std::cout << "Your board is clean right now."<< std::endl;    
     drawBoards(arr);
 }
 
-bool hasAnyoneWon(const std::vector<char>& arr, int& bankrollTictactoe) // Zmieniamy argument na wektor
+bool hasAnyoneWon(const std::vector<char>& arr, int& bankrollTictactoe) 
 {
     if ((arr[0] == 'X' && arr[1] == 'X' && arr[2] == 'X') || 
         (arr[3] == 'X' && arr[4] == 'X' && arr[5] == 'X') ||
