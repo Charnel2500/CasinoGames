@@ -21,12 +21,12 @@ std::string wordBase[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN] = {
                         };
 
 void welcomeHangman(){
-    std::cout << "Welcome in Hangman game!\n\n" << std::endl;
-    std::cout << "██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗" << std::endl;
-    std::cout << "██║░░██║██╔══██╗████╗░██║██╔════╝░████╗░████║██╔══██╗████╗░██║" << std::endl;
-    std::cout << "███████║███████║██╔██╗██║██║░░██╗░██╔████╔██║███████║██╔██╗██║" << std::endl;
-    std::cout << "██╔══██║██╔══██║██║╚████║██║░░╚██╗██║╚██╔╝██║██╔══██║██║╚████║" << std::endl;
-    std::cout << "██║░░██║██║░░██║██║░╚███║╚██████╔╝██║░╚═╝░██║██║░░██║██║░╚███║" << std::endl;
+    std::cout << "Welcome in Hangman game!\n\n\n";
+    std::cout << "██╗░░██╗░█████╗░███╗░░██╗░██████╗░███╗░░░███╗░█████╗░███╗░░██╗ \n";
+    std::cout << "██║░░██║██╔══██╗████╗░██║██╔════╝░████╗░████║██╔══██╗████╗░██║ \n";
+    std::cout << "███████║███████║██╔██╗██║██║░░██╗░██╔████╔██║███████║██╔██╗██║ \n";
+    std::cout << "██╔══██║██╔══██║██║╚████║██║░░╚██╗██║╚██╔╝██║██╔══██║██║╚████║ \n";
+    std::cout << "██║░░██║██║░░██║██║░╚███║╚██████╔╝██║░╚═╝░██║██║░░██║██║░╚███║ \n";
     std::cout << "╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\n" << std::endl;
     
 }
@@ -36,12 +36,12 @@ std::string chooseCategoryDrawWord(std::string (&wordBase)[MAX_NUMBER_CATEGORIES
     srand(time(NULL));
     int drawRandomWord = rand() % 20;
     std::string randomWord;
-    std::cout << "Choose category: 1. animals, 2. plants, 3. countries" << std::endl;
+    std::cout << "Choose category: 1. animals, 2. plants, 3. countries \n";
     std::cin >> chosenCategory;
     if (chosenCategory == 1)
-        std::cout << "You chose animals." << std::endl;
+        std::cout << "You chose animals. \n";
     if (chosenCategory == 2)
-        std::cout << "You chose plants." << std::endl;
+        std::cout << "You chose plants. \n";
     if (chosenCategory == 3)
         std::cout << "You chose countries." << std::endl;
     randomWord = wordBase[chosenCategory-1][drawRandomWord];
@@ -71,7 +71,7 @@ int gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]
     while (true)
     {
         bool charPresent = false;
-        std::cout << "Choose your letter (only small letters): " << std::endl;
+        std::cout << "Choose your letter (only small letters):  \n";
         std::cin >> chosenLetter;
         std::cout << "You chose letter " << chosenLetter << std::endl;
         for (int i = 0; i < int(drawnWord.length()); ++i)
@@ -89,7 +89,7 @@ int gameHangman(std::string (&wordBase)[MAX_NUMBER_CATEGORIES][MAX_NAME_HANGMAN]
         std::cout << guessWord << std::endl;
         if (deathCount == 6)
         {
-            std::cout << "You lost! You are dead man!" << std::endl;
+            std::cout << "You lost! You are dead man! \n";
             std::cout << "It was the word " << drawnWord << "."<< std::endl;
             bankrollHangman -= 5;
             break;

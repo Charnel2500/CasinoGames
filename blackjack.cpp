@@ -16,12 +16,12 @@ std::vector<Card> blackjackDeckPlayerCards;
 
 
 void welcomeBlackjack(){
-    std::cout << "Welcome in Blackjack game!\n\n" << std::endl;
-    std::cout << "██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗░░░░░██╗░█████╗░░█████╗░██╗░░██╗" << std::endl;
-    std::cout << "██╔══██╗██║░░░░░██╔══██╗██╔══██╗██║░██╔╝░░░░░██║██╔══██╗██╔══██╗██║░██╔╝" << std::endl;
-    std::cout << "██████╦╝██║░░░░░███████║██║░░╚═╝█████═╝░░░░░░██║███████║██║░░╚═╝█████═╝░" << std::endl;
-    std::cout << "██╔══██╗██║░░░░░██╔══██║██║░░██╗██╔═██╗░██╗░░██║██╔══██║██║░░██╗██╔═██╗░" << std::endl;
-    std::cout << "██████╦╝███████╗██║░░██║╚█████╔╝██║░╚██╗╚█████╔╝██║░░██║╚█████╔╝██║░╚██╗" << std::endl;
+    std::cout << "Welcome in Blackjack game!\n\n \n";
+    std::cout << "██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗░░░░░██╗░█████╗░░█████╗░██╗░░██╗ \n";
+    std::cout << "██╔══██╗██║░░░░░██╔══██╗██╔══██╗██║░██╔╝░░░░░██║██╔══██╗██╔══██╗██║░██╔╝ \n";
+    std::cout << "██████╦╝██║░░░░░███████║██║░░╚═╝█████═╝░░░░░░██║███████║██║░░╚═╝█████═╝░ \n";
+    std::cout << "██╔══██╗██║░░░░░██╔══██║██║░░██╗██╔═██╗░██╗░░██║██╔══██║██║░░██╗██╔═██╗░ \n";
+    std::cout << "██████╦╝███████╗██║░░██║╚█████╔╝██║░╚██╗╚█████╔╝██║░░██║╚█████╔╝██║░╚██╗ \n";
     std::cout << "╚═════╝░╚══════╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝\n\n" << std::endl;
 }
 
@@ -53,7 +53,7 @@ Card drawCard(std::vector<Card>& deck, std::vector<Card>& usedCards) {
     int randomIndex;
     
     if (deck.empty()) {
-        std::cout << "No cards to be drawn. Shuffling the cards dealt." << std::endl;
+        std::cout << "No cards to be drawn. Shuffling the cards dealt. \n";
         
         deck = usedCards;
         usedCards.clear();
@@ -96,7 +96,7 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::ve
                 std::cout << "Wrong number! Try again!" << std::endl;
             }
     } */ //do zaimplementowania później
-    std::cout << "This is opponent hand:" << std::endl;
+    std::cout << "This is opponent hand: \n";
     sleep(1);
     Card startingComputerCard1 = drawCard(deck, usedCards);
     computerHandValue = startingComputerCard1.cardValue;
@@ -105,7 +105,7 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::ve
     Card startingComputerCard2 = drawCard(deck, usedCards);
     computerHandValue += startingComputerCard1.cardValue;
     blackjackDeckComputerCards.push_back(startingComputerCard2);
-    std::cout << "Opponent hand value: " << computerHandValue << std::endl;
+    std::cout << "Opponent hand value: " << computerHandValue << "\n";
     
     Card startingPlayerCard1 = drawCard(deck, usedCards);
     playerHandValue = startingPlayerCard1.cardValue;
@@ -114,9 +114,9 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::ve
     Card startingPlayerCard2 = drawCard(deck, usedCards);
     playerHandValue += startingPlayerCard2.cardValue;
     blackjackDeckPlayerCards.push_back(startingPlayerCard2);
-    std::cout << "Player hand value: " << playerHandValue << std::endl;
+    std::cout << "Player hand value: " << playerHandValue << "\n";
     do {
-        std::cout << "You must decide. 1. draw a card, 2. Check your and opponent card, 3. Finish drawing a card" << std::endl; 
+        std::cout << "You must decide. 1. draw a card, 2. Check your and opponent card, 3. Finish drawing a card \n";
         std::cin >> choice;
         if (choice == 1) {
             Card startingPlayerCardMore = drawCard(deck, usedCards);
@@ -125,11 +125,11 @@ int blackjackGame(std::vector<Card>& deck, std::vector<Card>& usedCards, std::ve
             std::cout << "Player hand value: " << playerHandValue << std::endl;
         }
         else if (choice == 2) {
-            std::cout << "Opponent cards" << std::endl;
+            std::cout << "Opponent cards \n";
             showBlackjackCards(blackjackDeckComputerCards);
-            std::cout << "Opponent points: " << computerHandValue << std::endl;
+            std::cout << "Opponent points: " << computerHandValue << "\n";
             
-            std::cout << "Player cards" << std::endl;
+            std::cout << "Player cards \n";
             showBlackjackCards(blackjackDeckPlayerCards);
             std::cout << "Player points: " << playerHandValue << std::endl;
 

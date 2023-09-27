@@ -10,10 +10,10 @@ std::vector<char> numToChoose = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 void drawBoards(std::vector<char>& arr)
 {
-    std::cout << arr[0] << "|" << arr[1] << "|" << arr[2] << "|" << std::endl;
-    std::cout << "-+-+-+" << std::endl;
-    std::cout << arr[3] << "|" << arr[4] << "|" << arr[5] << "|" << std::endl;
-    std::cout << "-+-+-+" << std::endl;
+    std::cout << arr[0] << "|" << arr[1] << "|" << arr[2] << "| \n";
+    std::cout << "-+-+-+ \n";
+    std::cout << arr[3] << "|" << arr[4] << "|" << arr[5] << "| \n";
+    std::cout << "-+-+-+ \n";
     std::cout << arr[6] << "|" << arr[7] << "|" << arr[8] << "| \n" << std::endl;
 }
 
@@ -72,11 +72,11 @@ void computerMove(std::vector<char>& arr)
 {
     int randNum;    
     do {
-        std::cout << "\n\nWait for computer move!" << std::endl;
+        std::cout << "\n\nWait for computer move! \n";
         sleep(1);
         srand(time(NULL));
         randNum = (rand() % 9)+1;
-        std::cout << "Computer chose number: " << randNum << "." << std::endl;
+        std::cout << "Computer chose number: " << randNum << ". \n";
         if (isFieldFree(randNum-1, arr) == true)
         {
             arr[randNum-1] = 'O';
@@ -138,12 +138,12 @@ int gameTicTacToe(std::vector<char>& arr) {
         startMusic.play();
         startMusic.setLoop(true);
     }
-    std::cout << "Welcome in Tic Tac Toe game!\n\n" << std::endl;
-    std::cout << "████████╗██╗░█████╗░░░░░░░████████╗░█████╗░░█████╗░░░░░░░████████╗░█████╗░███████╗" << std::endl;
-    std::cout << "╚══██╔══╝██║██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔════╝" << std::endl;
-    std::cout << "░░░██║░░░██║██║░░╚═╝█████╗░░░██║░░░███████║██║░░╚═╝█████╗░░░██║░░░██║░░██║█████╗░░" << std::endl;
-    std::cout << "░░░██║░░░██║██║░░██╗╚════╝░░░██║░░░██╔══██║██║░░██╗╚════╝░░░██║░░░██║░░██║██╔══╝░░" << std::endl;
-    std::cout << "░░░██║░░░██║╚█████╔╝░░░░░░░░░██║░░░██║░░██║╚█████╔╝░░░░░░░░░██║░░░╚█████╔╝███████╗" << std::endl;
+    std::cout << "Welcome in Tic Tac Toe game!\n\n\n";
+    std::cout << "████████╗██╗░█████╗░░░░░░░████████╗░█████╗░░█████╗░░░░░░░████████╗░█████╗░███████╗ \n";
+    std::cout << "╚══██╔══╝██║██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔════╝ \n";
+    std::cout << "░░░██║░░░██║██║░░╚═╝█████╗░░░██║░░░███████║██║░░╚═╝█████╗░░░██║░░░██║░░██║█████╗░░ \n";
+    std::cout << "░░░██║░░░██║██║░░██╗╚════╝░░░██║░░░██╔══██║██║░░██╗╚════╝░░░██║░░░██║░░██║██╔══╝░░ \n";
+    std::cout << "░░░██║░░░██║╚█████╔╝░░░░░░░░░██║░░░██║░░██║╚█████╔╝░░░░░░░░░██║░░░╚█████╔╝███████╗ \n";
     std::cout << "░░░╚═╝░░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░░╚════╝░╚══════╝\n\n" << std::endl;
     int bankrollTictactoe = 0;
     sleep(2); 

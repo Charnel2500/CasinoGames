@@ -10,12 +10,12 @@
 
 //pomysl o stworzeniu dwóch graczy.
 void welcomeDicePoker(){
-    std::cout << "Welcome in Dice Poker game!\n\n" << std::endl;
-    std::cout << "██████╗░██╗░█████╗░███████╗  ██████╗░░█████╗░██╗░░██╗███████╗██████╗░" << std::endl; //https://fsymbols.com/generators/carty/
-    std::cout << "██╔══██╗██║██╔══██╗██╔════╝  ██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗" << std::endl;
-    std::cout << "██║░░██║██║██║░░╚═╝█████╗░░  ██████╔╝██║░░██║█████═╝░█████╗░░██████╔╝" << std::endl;
-    std::cout << "██║░░██║██║██║░░██╗██╔══╝░░  ██╔═══╝░██║░░██║██╔═██╗░██╔══╝░░██╔══██╗" << std::endl;
-    std::cout << "██████╔╝██║╚█████╔╝███████╗  ██║░░░░░╚█████╔╝██║░╚██╗███████╗██║░░██║" << std::endl;
+    std::cout << "Welcome in Dice Poker game!\n\n";
+    std::cout << "██████╗░██╗░█████╗░███████╗  ██████╗░░█████╗░██╗░░██╗███████╗██████╗░ \n";
+    std::cout << "██╔══██╗██║██╔══██╗██╔════╝  ██╔══██╗██╔══██╗██║░██╔╝██╔════╝██╔══██╗ \n";
+    std::cout << "██║░░██║██║██║░░╚═╝█████╗░░  ██████╔╝██║░░██║█████═╝░█████╗░░██████╔╝ \n";
+    std::cout << "██║░░██║██║██║░░██╗██╔══╝░░  ██╔═══╝░██║░░██║██╔═██╗░██╔══╝░░██╔══██╗ \n";
+    std::cout << "██████╔╝██║╚█████╔╝███████╗  ██║░░░░░╚█████╔╝██║░╚██╗███████╗██║░░██║ \n";
     std::cout << "╚═════╝░╚═╝░╚════╝░╚══════╝  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝\n\n" << std::endl;
 }
 void firstRollDice(int* arr) {
@@ -36,30 +36,30 @@ int diceRollGenerator() {
     return diceRoll(gen);
 }
 void rollSpecificDiceAgain(int* arr) {
-    std::cout << "You may roll the selected dice again. Your dice values: " << std::endl;
+    std::cout << "You may roll the selected dice again. Your dice values:  \n";
     showRollResult(arr);
     int decision = 0;
-    std::cout << "Do you want to roll the first dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cout << "Do you want to roll the first dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 1) {
         arr[0] = diceRollGenerator();
     }
-    std::cout << "Do you want to roll the second dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cout << "Do you want to roll the second dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 2) {
         arr[1] = diceRollGenerator();
     }
-    std::cout << "Do you want to roll the third dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cout << "Do you want to roll the third dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 3) {
         arr[2] = diceRollGenerator();
     }
-    std::cout << "Do you want to roll the fourth dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cout << "Do you want to roll the fourth dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 4) {
         arr[3] = diceRollGenerator();
     }
-    std::cout << "Do you want to roll the fifth dice again (1 - yes, 0 - no)?" << std::endl;
+    std::cout << "Do you want to roll the fifth dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 5) {
         arr[4] = diceRollGenerator();
@@ -141,9 +141,9 @@ int findDifferentPosition(int* arr)
 }
 int computerRollSpecificDiceAgain(int* arr) 
 {
-    std::cout << "The computer now decides whether to roll the dice again." << std::endl;
+    std::cout << "The computer now decides whether to roll the dice again. \n";
     if (numberRepeats(arr)==5) {
-        std::cout << "Computer will not roll the dice again." << std::endl;
+        std::cout << "Computer will not roll the dice again. \n";
         return 0;
     }
     if (numberRepeats(arr)==4) {
@@ -151,7 +151,7 @@ int computerRollSpecificDiceAgain(int* arr)
         return 0;
     }
     if (fullHouse(arr) == true) {
-        std::cout << "Computer will not roll the dice again." << std::endl;
+        std::cout << "Computer will not roll the dice again. \n";
         return 0;
     }
     if (numberRepeats(arr) == 1) {
@@ -175,26 +175,26 @@ int computerRollSpecificDiceAgain(int* arr)
 
 void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and opponent roll the dice again and they can't roll specific dice again it is just pure luck.
 {
-    std::cout << "There is a draw. You and your opponent will roll the dice again and you will not roll specific dice again it is just pure luck." << std::endl;
-    std::cout << "The player rolls the dice" << std::endl;
+    std::cout << "There is a draw. You and your opponent will roll the dice again and you will not roll specific dice again it is just pure luck. \n";
+    std::cout << "The player rolls the dice \n";
     sleep(1);
-    std::cout << "3.." << std::endl;
+    std::cout << "3.. \n";
     sleep(1);
-    std::cout << "2.." << std::endl;
+    std::cout << "2.. \n";
     sleep(1);
-    std::cout << "1.." << std::endl;
+    std::cout << "1.. \n";
     sleep(1);
-    std::cout << "Let's roll the dice" << std::endl;
+    std::cout << "Let's roll the dice \n";
     firstRollDice(arr1);
     showRollResult(arr1);
-    std::cout << "The opponent rolls the dice" << std::endl;
+    std::cout << "The opponent rolls the dice \n";
     firstRollDice(arr2);
     sleep(1);
-    std::cout << "3.." << std::endl;
+    std::cout << "3.. \n";
     sleep(1);
-    std::cout << "2.." << std::endl;
+    std::cout << "2.. \n";
     sleep(1);
-    std::cout << "1.." << std::endl;
+    std::cout << "1.. \n";
     sleep(1);
     std::cout << "Let's roll the dice" << std::endl;
     showRollResult(arr2);
@@ -478,21 +478,21 @@ int dicePokerGame(int* arr1, int* arr2) {
     std::cout << "The player rolls the dice" << std::endl;
     sleep(1);
     for (int i = 3; i > 0; --i) {
-        std::cout << i << ".." << std::endl;
+        std::cout << i << ".. \n";
         sleep(1);
     }
-    std::cout << "Let's roll the dice" << std::endl;
+    std::cout << "Let's roll the dice \n";
     firstRollDice(arr1);
     showRollResult(arr1);
     rollSpecificDiceAgain(arr1);
-    std::cout << "The opponent rolls the dice" << std::endl;
+    std::cout << "The opponent rolls the dice \n";
     sleep(1);
     for (int i = 3; i > 0; --i) {
-        std::cout << i << ".." << std::endl;
+        std::cout << i << ".. \n";
         sleep(1);
     }
     firstRollDice(arr2);
-    std::cout << "Let's roll the dice" << std::endl;
+    std::cout << "Let's roll the dice \n";
     showRollResult(arr2);
     if (difficultyLevel == 2) 
     {
@@ -500,11 +500,11 @@ int dicePokerGame(int* arr1, int* arr2) {
         showRollResult(arr2);
     }
     if (winLose(arr1, arr2)==1) {
-        std::cout << "You won. Congratulation!" << std::endl;
+        std::cout << "You won. Congratulation! \n";
         bankrollPoker += 10;
     }
     else {
-        std::cout << "You lost. You suck!" << std::endl;
+        std::cout << "You lost. You suck! \n";
         bankrollPoker -= 10;
     }
     std::cout << "Do you want play again. Write y if yes." << std::endl;
