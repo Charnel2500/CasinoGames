@@ -26,3 +26,4 @@ int sumValue(int a1[]);
 bool winLose(int a1[], int b1[]);
 int dicePokerGame(int* arr1, int* arr2);
 #endif // DICEPOKER_H_INCLUDED
+
