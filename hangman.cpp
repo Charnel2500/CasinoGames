@@ -6,7 +6,7 @@
 
 #include "hangman.h"
 
-std::vector<std::string> wordBase[MAX_NUMBER_CATEGORIES];  // Zmiana na wektor zamiast tablicy
+std::vector<std::string> wordBase[MAX_NUMBER_CATEGORIES];  
 
 void welcomeHangman() {
     std::cout << "Welcome in Hangman game!\n\n\n";
@@ -18,7 +18,7 @@ void welcomeHangman() {
     std::cout << "╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝\n\n" << std::endl;
 }
 
-std::string chooseCategoryDrawWord(std::vector<std::string> (&wordBase)[MAX_NUMBER_CATEGORIES])  // Zmiana na wektor zamiast tablicy
+std::string chooseCategoryDrawWord(std::vector<std::string> (&wordBase)[MAX_NUMBER_CATEGORIES])  
 {
     int chosenCategory;
     srand(time(NULL));
@@ -37,7 +37,7 @@ std::string chooseCategoryDrawWord(std::vector<std::string> (&wordBase)[MAX_NUMB
     return randomWord;
 }
 
-int gameHangman(std::vector<std::string> (&wordBase)[MAX_NUMBER_CATEGORIES])  // Zmiana na wektor zamiast tablicy
+int gameHangman(std::vector<std::string> (&wordBase)[MAX_NUMBER_CATEGORIES])  
 {
     sf::Music startMusic;
     if (!startMusic.openFromFile("music/hangman.wav")) {

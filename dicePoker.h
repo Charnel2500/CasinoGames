@@ -4,26 +4,26 @@ const int MAX_HAND = 5;
 
 struct playerResult {
     std::string playerName;
-    int diceResult[MAX_HAND];
+    std::vector<int> diceResult;
     };
 
 void welcomeDicePoker();
-void firstRollDice(int* arr);
+void firstRollDice(std::vector<int>& dice);
 int diceRollGenerator();
-void rollSpecificDiceAgain(int* arr);
-int findLeastFrequentIndex(int* arr);
-int findMostFrequentValue(int* arr);
-void rollTheDiceAgainPairOrThreeOfKind(int* arr);
-int findDifferentPosition(int* arr);
-int computerRollSpecificDiceAgain(int* arr);
-void rollDiceAgain (int* arr1, int* arr2);
-void showRollResult(int* arr);
-int numberRepeats(int a1[]);
-bool fullHouse(int a1[]);
-bool twoPairs(int a1[]);
-int valueHighestRepeats(int a1[]);
-int sumValue(int a1[]);
-bool winLose(int a1[], int b1[]);
-int dicePokerGame(int* arr1, int* arr2);
+void rollSpecificDiceAgain(std::vector<int>& dice);
+int findLeastFrequentIndex(std::vector<int>& dice);
+int findMostFrequentValue(std::vector<int>& dice);
+void rollTheDiceAgainPairOrThreeOfKind(std::vector<int>& dice);
+int findDifferentPosition(std::vector<int>& dice);
+int computerRollSpecificDiceAgain(std::vector<int>& dice);
+void rollDiceAgain (std::vector<int>& dice, std::vector<int>& dice2);
+void showRollResult(std::vector<int>& dice);
+int numberRepeats(std::vector<int>& dice);
+bool fullHouse(std::vector<int>& dice);
+bool twoPairs(std::vector<int>& dice);
+int valueHighestRepeats(std::vector<int>& dice);
+int sumValue(std::vector<int>& dice);
+bool winLose(std::vector<int>& dice, std::vector<int>& dice2);
+int dicePokerGame(std::vector<int>& dice, std::vector<int>& dice2);
 #endif // DICEPOKER_H_INCLUDED
 

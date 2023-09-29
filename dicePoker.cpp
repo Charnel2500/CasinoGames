@@ -8,7 +8,6 @@
 
 
 
-//pomysl o stworzeniu dwóch graczy.
 void welcomeDicePoker(){
     std::cout << "Welcome in Dice Poker game!\n\n";
     std::cout << "██████╗░██╗░█████╗░███████╗  ██████╗░░█████╗░██╗░░██╗███████╗██████╗░ \n";
@@ -18,61 +17,62 @@ void welcomeDicePoker(){
     std::cout << "██████╔╝██║╚█████╔╝███████╗  ██║░░░░░╚█████╔╝██║░╚██╗███████╗██║░░██║ \n";
     std::cout << "╚═════╝░╚═╝░╚════╝░╚══════╝  ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝\n\n" << std::endl;
 }
-void firstRollDice(int* arr) {
-    std::random_device rd;  
-    std::mt19937 gen(rd());  
+void firstRollDice(std::vector<int>& dice) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
-    std::uniform_int_distribution<int> diceRoll(1, 6);  
+    std::uniform_int_distribution<int> diceRoll(1, 6);
+
+    dice.clear(); 
 
     for (int i = 0; i < MAX_HAND; ++i) {
-        arr[i] = diceRoll(gen);  
+        dice.push_back(diceRoll(gen)); 
     }
 }
-
 int diceRollGenerator() {
     std::random_device rd;  
     std::mt19937 gen(rd());  
     std::uniform_int_distribution<int> diceRoll(1, 6); 
     return diceRoll(gen);
 }
-void rollSpecificDiceAgain(int* arr) {
+void rollSpecificDiceAgain(std::vector<int>& dice) {
     std::cout << "You may roll the selected dice again. Your dice values:  \n";
-    showRollResult(arr);
+    showRollResult(dice);
     int decision = 0;
     std::cout << "Do you want to roll the first dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 1) {
-        arr[0] = diceRollGenerator();
+        dice[0] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the second dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 2) {
-        arr[1] = diceRollGenerator();
+        dice[1] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the third dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 3) {
-        arr[2] = diceRollGenerator();
+        dice[2] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the fourth dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 4) {
-        arr[3] = diceRollGenerator();
+        dice[3] = diceRollGenerator();
     }
     std::cout << "Do you want to roll the fifth dice again (1 - yes, 0 - no)? \n";
     std::cin >> decision;
     if (decision == 5) {
-        arr[4] = diceRollGenerator();
+        dice[4] = diceRollGenerator();
     }
     std::cout << "You rolled the dice again. Here are your results: " << std::endl;
-    showRollResult(arr);
+    showRollResult(dice);
 }
 
-int findLeastFrequentIndex(int* arr) {
+int findLeastFrequentIndex(std::vector<int>& dice) {
     std::unordered_map<int, int> frequencyMap;
     
     for (int i = 0; i < MAX_HAND; ++i) {
-        frequencyMap[arr[i]]++;
+        frequencyMap[dice[i]]++;
     }
     
     int leastFrequentIndex = -1;
@@ -88,11 +88,11 @@ int findLeastFrequentIndex(int* arr) {
     return leastFrequentIndex;
 }
 
-int findMostFrequentValue(int* arr) {
+int findMostFrequentValue(std::vector<int>& dice) {
     std::unordered_map<int, int> frequencyMap;
     
     for (int i = 0; i < MAX_HAND; ++i) {
-        frequencyMap[arr[i]]++;
+        frequencyMap[dice[i]]++;
     }
     
     int mostFrequentValue = 0;
@@ -107,25 +107,25 @@ int findMostFrequentValue(int* arr) {
     return mostFrequentValue;
 }
 
-void rollTheDiceAgainPairOrThreeOfKind(int* arr) {
+void rollTheDiceAgainPairOrThreeOfKind(std::vector<int>& dice) {
     for (int i = 0; i < MAX_HAND; ++i) {
-        if (arr[i] != findMostFrequentValue(arr)) {
-            arr[findDifferentPosition(arr)] =  diceRollGenerator();
+        if (dice[i] != findMostFrequentValue(dice)) {
+            dice[findDifferentPosition(dice)] =  diceRollGenerator();
         }
     }
 }
     
 
-int findDifferentPosition(int* arr)
+int findDifferentPosition(std::vector<int>& dice)
 {
     int pos = -1;
     for (int i = 0; i < MAX_HAND; ++i)
     {
-        int num = arr[i];
+        int num = dice[i];
         bool isUnique = true;
         for (int j = 0; j < MAX_HAND; ++j)
         {
-            if (i != j && arr[j] == num)
+            if (i != j && dice[j] == num)
             {
                 isUnique = false;
                 break;
@@ -139,41 +139,41 @@ int findDifferentPosition(int* arr)
     }
     return pos;
 }
-int computerRollSpecificDiceAgain(int* arr) 
+int computerRollSpecificDiceAgain(std::vector<int>& dice) 
 {
     std::cout << "The computer now decides whether to roll the dice again. \n";
-    if (numberRepeats(arr)==5) {
+    if (numberRepeats(dice)==5) {
         std::cout << "Computer will not roll the dice again. \n";
         return 0;
     }
-    if (numberRepeats(arr)==4) {
-        arr[findDifferentPosition(arr)] = diceRollGenerator();
+    if (numberRepeats(dice)==4) {
+        dice[findDifferentPosition(dice)] = diceRollGenerator();
         return 0;
     }
-    if (fullHouse(arr) == true) {
+    if (fullHouse(dice) == true) {
         std::cout << "Computer will not roll the dice again. \n";
         return 0;
     }
-    if (numberRepeats(arr) == 1) {
+    if (numberRepeats(dice) == 1) {
         std::cout << "Computer will not roll the dice again." << std::endl;
         return 0;
     }
-    if (twoPairs(arr) == true) {
-        arr[findLeastFrequentIndex(arr)] = diceRollGenerator();
+    if (twoPairs(dice) == true) {
+        dice[findLeastFrequentIndex(dice)] = diceRollGenerator();
         return 0;
     }
-    if (numberRepeats(arr) == 3 || numberRepeats(arr) == 2) {
-        rollTheDiceAgainPairOrThreeOfKind(arr);
+    if (numberRepeats(dice) == 3 || numberRepeats(dice) == 2) {
+        rollTheDiceAgainPairOrThreeOfKind(dice);
     }
     else {
-        firstRollDice(arr);
+        firstRollDice(dice);
     }
     return 0;
 }
 
 
 
-void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and opponent roll the dice again and they can't roll specific dice again it is just pure luck.
+void rollDiceAgain (std::vector<int>& dice, std::vector<int>& dice2) //when there is dice drdicew player dicend opponent roll the dice again dicend they cdicen't roll specific dice again it is just pure luck.
 {
     std::cout << "There is a draw. You and your opponent will roll the dice again and you will not roll specific dice again it is just pure luck. \n";
     std::cout << "The player rolls the dice \n";
@@ -185,10 +185,10 @@ void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and oppo
     std::cout << "1.. \n";
     sleep(1);
     std::cout << "Let's roll the dice \n";
-    firstRollDice(arr1);
-    showRollResult(arr1);
+    firstRollDice(dice);
+    showRollResult(dice);
     std::cout << "The opponent rolls the dice \n";
-    firstRollDice(arr2);
+    firstRollDice(dice2);
     sleep(1);
     std::cout << "3.. \n";
     sleep(1);
@@ -197,35 +197,35 @@ void rollDiceAgain (int* arr1, int* arr2) //when there is a draw player and oppo
     std::cout << "1.. \n";
     sleep(1);
     std::cout << "Let's roll the dice" << std::endl;
-    showRollResult(arr2);
+    showRollResult(dice2);
 }
 
-void showRollResult(int* arr) {
+void showRollResult(std::vector<int>& dice) {
     for (int i = 0; i < MAX_HAND; ++i) 
     {
-        std::cout << "The value of dice number " << i << " equals " << arr[i] << "." << std::endl;
+        std::cout << "The value of dice number " << i << " equals " << dice [i] << "." << std::endl;
     }
 }
 
-int numberRepeats(int a1[]) {
-    int repMax = 0;
+int numberRepeats(std::vector<int>& dice) {
+    int repmax = 0;
     for (int i = 0; i < MAX_HAND; ++i){
         int rep = 0;
         for (int j = 0; j < MAX_HAND; ++j) {
-            if (a1[i] == a1[j])
+            if (dice[i] == dice[j])
                 rep++;
         }
 
-        if (rep > repMax)
-            repMax = rep;
+        if (rep > repmax)
+            repmax = rep;
     }
-    return repMax;
+    return repmax;
 }
-bool fullHouse(int a1[]) {
-    std::sort(a1, a1 + 5);  // Sortowanie tablicy w celu ułatwienia porównań
+bool fullHouse(std::vector<int>& dice) {
+    std::sort(dice.begin(), dice.end());  
 
-    if ((a1[0] == a1[2] && a1[3] == a1[4] && a1[2] != a1[3]) ||  // Przypadek: 3, 3, 3, X, Y
-        (a1[0] == a1[1] && a1[2] == a1[4] && a1[1] != a1[2])) {  // Przypadek: X, X, Y, Y, Y
+    if ((dice[0] == dice[2] && dice[3] == dice[4] && dice[2] != dice[3]) ||  // Przypadek: 3, 3, 3, X, Y
+        (dice[0] == dice[1] && dice[2] == dice[4] && dice[1] != dice[2])) {  // Przypadek: X, X, Y, Y, Y
         return true;
     }
 
@@ -234,219 +234,219 @@ bool fullHouse(int a1[]) {
 
         
 
-bool twoPairs(int a1[]) { //checking if there are two pairs of dice with the same values 
-    if (((a1[0] == a1[1] && a1[2] == a1[3]) || (a1[0] == a1[2] && a1[1] == a1[3]) || (a1[0] == a1[3] && a1[1] == a1[4])) || (a1[1] == a1[2] && a1[3] == a1[4]) || (a1[0] == a1[1] && a1[3] == a1[4]))
+bool twoPairs(std::vector<int>& dice) { //checking if there are two pairs of a with the saeme values 
+    if (((dice[0] == dice[1] && dice[2] == dice[3]) || (dice[0] == dice[2] && dice[1] == dice[3]) || (dice[0] == dice[3] && dice[1] == dice[4])) || (dice[1] == dice[2] && dice[3] == dice[4]) || (dice[0] == dice[1] && dice[3] == dice[4]))
         return true;
     return false;
 }
 
-int valueHighestRepeats(int a1[]){
+int valueHighestRepeats(std::vector<int>& dice){
     int max = 0;
     for (int i = 0; i < MAX_HAND; ++i){
-        if (a1[i] > max)
-                max = a1[i];
+        if (dice[i] > max)
+                max = dice[i];
         }
     return max;
     
 } 
 
-int sumValue(int a1[]){
+int sumValue(std::vector<int>& dice){
     int sum = 0;
     for (int i = 0; i < MAX_HAND; ++i){
-        sum+=a1[i];
+        sum+=dice[i];
     }
     return sum;
 }
 
 
-bool winLose(int a1[], int b1[]){ //check the result, return true if you win, return false f you lose, there is no draw you roll the dice until someone will win.
-    if (numberRepeats(a1) == 5 && numberRepeats(b1) < 5) { // 5 the same
+bool winLose(std::vector<int>& dice, std::vector<int>& dice2){ //check the result, return true if you win, return false f you lose, there is no drdicew you roll the dice until someone will win.
+    if (numberRepeats(dice) == 5 && numberRepeats(dice2) < 5) { // 5 the sdiceme
         return true;
     }
-    else if (numberRepeats(b1) == 5 && numberRepeats(a1) < 5) {
+    else if (numberRepeats(dice2) == 5 && numberRepeats(dice) < 5) {
         return false;
     }
-    else if (numberRepeats(a1) == 5 && numberRepeats(b1) == 5) {
-        if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+    else if (numberRepeats(dice) == 5 && numberRepeats(dice2) == 5) {
+        if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
             return true;
         }
-        else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+        else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
             return false;
         }
-        else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+        else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
         {
-            rollDiceAgain(a1, b1); 
+            rollDiceAgain(dice, dice2); 
         }
     }
     else {
-        if (numberRepeats(a1) == 4 && numberRepeats(b1) < 4) { // 4 the same
+        if (numberRepeats(dice) == 4 && numberRepeats(dice2) < 4) { // 4 the sdiceme
             return true;
         }
-        else if (numberRepeats(b1) == 4 && numberRepeats(a1) < 4) {
+        else if (numberRepeats(dice2) == 4 && numberRepeats(dice) < 4) {
             return false;
         }
-        else if (numberRepeats(a1) == 4 && numberRepeats(b1) == 4) {
-            if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+        else if (numberRepeats(dice) == 4 && numberRepeats(dice2) == 4) {
+            if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                 return true;
             }
-            else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+            else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                 return false;
             }
-            else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+            else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
             {
-                rollDiceAgain(a1, b1); 
+                rollDiceAgain(dice, dice2); 
             }
         }
         else {
-            if ((fullHouse(a1) == true) && (fullHouse(b1) != true)) {
+            if ((fullHouse(dice) == true) && (fullHouse(dice2) != true)) {
                 return true;
             }
-            else if ((fullHouse(a1) != true) && (fullHouse(b1) == true)) {
+            else if ((fullHouse(dice) != true) && (fullHouse(dice2) == true)) {
                 return false;
             }
-            else if ((fullHouse(a1) == true) && (fullHouse(b1) == true)) {
-                if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+            else if ((fullHouse(dice) == true) && (fullHouse(dice2) == true)) {
+                if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                     return true;
                 }
-                else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                     return false;
                 }
-                else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                 {
-                    if (sumValue(a1) > sumValue(b1)) {
+                    if (sumValue(dice) > sumValue(dice2)) {
                         return true;
                     }
-                    else if (sumValue(a1) < sumValue(b1)) {
+                    else if (sumValue(dice) < sumValue(dice2)) {
                         return false;
                     }
-                    else if (sumValue(a1) == sumValue(b1)) {
-                        rollDiceAgain(a1, b1); 
+                    else if (sumValue(dice) == sumValue(dice2)) {
+                        rollDiceAgain(dice, dice2); 
                     }
                 }
             }
             else {
-                if (numberRepeats(a1) == 1 && numberRepeats(b1) != 1) {    //straight
+                if (numberRepeats(dice) == 1 && numberRepeats(dice2) != 1) {    //strdiceight
                     return true;
                 }
-                else if (numberRepeats(a1) != 1 && numberRepeats(b1) == 1) {
+                else if (numberRepeats(dice) != 1 && numberRepeats(dice2) == 1) {
                     return false;
                 }
-                else if (numberRepeats(a1) == 1 && numberRepeats(b1) == 1) {    //now check higher straight
-                    if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+                else if (numberRepeats(dice) == 1 && numberRepeats(dice2) == 1) {    //now check higher strdiceight
+                    if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                         return true;
                     }
-                    else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                    else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                         return false;
                     }
-                    else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                    else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                     {
-                        rollDiceAgain(a1, b1); 
+                        rollDiceAgain(dice, dice2); 
                     }
                 }
                 else {
-                    if ((fullHouse(a1) == true) && (fullHouse(b1) != true)) {
+                    if ((fullHouse(dice) == true) && (fullHouse(dice2) != true)) {
                         return true;
                     }
-                    else if ((fullHouse(a1) != true) && (fullHouse(b1) == true)) {
+                    else if ((fullHouse(dice) != true) && (fullHouse(dice2) == true)) {
                         return false;
                     }
-                    else if ((fullHouse(a1) == true) && (fullHouse(b1) == true)) {
-                        if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+                    else if ((fullHouse(dice) == true) && (fullHouse(dice2) == true)) {
+                        if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                             return true;
                         }
-                        else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                        else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                             return false;
                         }
-                        else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                        else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                         {
-                            if (sumValue(a1) > sumValue(b1)) {
+                            if (sumValue(dice) > sumValue(dice2)) {
                                 return true;
                             }
-                            else if (sumValue(a1) < sumValue(b1)) {
+                            else if (sumValue(dice) < sumValue(dice2)) {
                                 return false;
                             }
-                            else if (sumValue(a1) == sumValue(b1)) {
-                                rollDiceAgain(a1, b1); 
+                            else if (sumValue(dice) == sumValue(dice2)) {
+                                rollDiceAgain(dice, dice2); 
                             }
                         }
                     }
-                    else if ((twoPairs(a1) == true) && (twoPairs(b1) != true)) {
+                    else if ((twoPairs(dice) == true) && (twoPairs(dice2) != true)) {
                         return true;
                     }
-                    else if ((twoPairs(a1) != true) && (twoPairs(b1) == true)) {
+                    else if ((twoPairs(dice) != true) && (twoPairs(dice2) == true)) {
                         return false;
                     }
-                    else if ((twoPairs(a1) == true) && (twoPairs(b1) == true)) {
-                        if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+                    else if ((twoPairs(dice) == true) && (twoPairs(dice2) == true)) {
+                        if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                             return true;
                         }
-                        else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                        else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                             return false;
                         }
-                        else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                        else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                         {
-                            if (sumValue(a1) > sumValue(b1)) {
+                            if (sumValue(dice) > sumValue(dice2)) {
                                 return true;
                             }
-                            else if (sumValue(a1) < sumValue(b1)) {
+                            else if (sumValue(dice) < sumValue(dice2)) {
                                 return false;
                             }
-                            else if (sumValue(a1) == sumValue(b1)) {
-                                rollDiceAgain(a1, b1); 
+                            else if (sumValue(dice) == sumValue(dice2)) {
+                                rollDiceAgain(dice, dice2); 
                             }
                         }
                     }
                     else {
-                        if (numberRepeats(a1) == 3 && numberRepeats(b1) < 3) {
+                        if (numberRepeats(dice) == 3 && numberRepeats(dice2) < 3) {
                             return true;
                         }
-                        else if (numberRepeats(b1) == 3 && numberRepeats(a1) < 3) {
+                        else if (numberRepeats(dice2) == 3 && numberRepeats(dice) < 3) {
                             return false;
                         }
-                        else if (numberRepeats(a1) == 3 && numberRepeats(b1) == 3) {
-                            if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+                        else if (numberRepeats(dice) == 3 && numberRepeats(dice2) == 3) {
+                            if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                                 return true;
                             }
-                            else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                            else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                                 return false;
                             }
-                            else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                            else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                             {
-                                if (sumValue(a1) > sumValue(b1)) {
+                                if (sumValue(dice) > sumValue(dice2)) {
                                     return true;
                                 }
-                                else if (sumValue(a1) < sumValue(b1)) {
+                                else if (sumValue(dice) < sumValue(dice2)) {
                                     return false;
                                 }
-                                else if (sumValue(a1) == sumValue(b1)) {
-                                    rollDiceAgain(a1, b1); 
+                                else if (sumValue(dice) == sumValue(dice2)) {
+                                    rollDiceAgain(dice, dice2); 
                                 }
                             }
                         }
                         else {
-                            if (numberRepeats(a1) == 2 && numberRepeats(b1) < 2) {
+                            if (numberRepeats(dice) == 2 && numberRepeats(dice2) < 2) {
                                 return true;
                             }
-                            else if (numberRepeats(b1) == 2 && numberRepeats(a1) < 2) {
+                            else if (numberRepeats(dice2) == 2 && numberRepeats(dice) < 2) {
                                 return false;
                             }
-                            else if (numberRepeats(a1) == 2 && numberRepeats(b1) == 2) {
-                                if (valueHighestRepeats(a1) > valueHighestRepeats(b1)) {
+                            else if (numberRepeats(dice) == 2 && numberRepeats(dice2) == 2) {
+                                if (valueHighestRepeats(dice) > valueHighestRepeats(dice2)) {
                                     return true;
                                 }
-                                else if (valueHighestRepeats(a1) < valueHighestRepeats(b1)) {
+                                else if (valueHighestRepeats(dice) < valueHighestRepeats(dice2)) {
                                     return false;
                                 }
-                                else if (valueHighestRepeats(a1) == valueHighestRepeats(b1))
+                                else if (valueHighestRepeats(dice) == valueHighestRepeats(dice2))
                                 {
-                                    if (sumValue(a1) > sumValue(b1)) {
+                                    if (sumValue(dice) > sumValue(dice2)) {
                                         return true;
                                     }
-                                    else if (sumValue(a1) < sumValue(b1)) {
+                                    else if (sumValue(dice) < sumValue(dice2)) {
                                         return false;
                                     }
-                                    else if (sumValue(a1) == sumValue(b1)) {
-                                        rollDiceAgain(a1, b1); 
+                                    else if (sumValue(dice) == sumValue(dice2)) {
+                                        rollDiceAgain(dice, dice2); 
                                     }
                                 }
                             }
@@ -459,7 +459,7 @@ bool winLose(int a1[], int b1[]){ //check the result, return true if you win, re
     return true;
 }
 
-int dicePokerGame(int* arr1, int* arr2) {
+int dicePokerGame(std::vector<int>& dice, std::vector<int>& dice2) {
     int bankrollPoker = 0;
     welcomeDicePoker();
     char playAgain;
@@ -482,24 +482,24 @@ int dicePokerGame(int* arr1, int* arr2) {
         sleep(1);
     }
     std::cout << "Let's roll the dice \n";
-    firstRollDice(arr1);
-    showRollResult(arr1);
-    rollSpecificDiceAgain(arr1);
+    firstRollDice(dice);
+    showRollResult(dice);
+    rollSpecificDiceAgain(dice);
     std::cout << "The opponent rolls the dice \n";
     sleep(1);
     for (int i = 3; i > 0; --i) {
         std::cout << i << ".. \n";
         sleep(1);
     }
-    firstRollDice(arr2);
+    firstRollDice(dice2);
     std::cout << "Let's roll the dice \n";
-    showRollResult(arr2);
+    showRollResult(dice2);
     if (difficultyLevel == 2) 
     {
-        computerRollSpecificDiceAgain(arr2);
-        showRollResult(arr2);
+        computerRollSpecificDiceAgain(dice2);
+        showRollResult(dice2);
     }
-    if (winLose(arr1, arr2)==1) {
+    if (winLose(dice, dice2)==1) {
         std::cout << "You won. Congratulation! \n";
         bankrollPoker += 10;
     }
