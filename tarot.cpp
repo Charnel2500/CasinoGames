@@ -57,7 +57,7 @@ void readTarotCard(){
             }
         }
         std::stringstream imagePathStream;
-        imagePathStream << "tarot_images/" << randomTarotCardIndex << ".jpg";
+        imagePathStream << "tarot_images/" << randomTarotCardIndex+1 << ".jpg";
         std::string imagePath = imagePathStream.str();
         sf::Texture texture;
         if (texture.loadFromFile(imagePath)) {
